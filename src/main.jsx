@@ -10,6 +10,9 @@ import { ErrorPage } from "./errorpage";
 import { About } from "./pages/about";
 import { Contact } from "./pages/contact";
 import { Projects } from "./pages/projects";
+import { ToDoList } from "./pages/projects/todo";
+import { VideoPlayer } from "./pages/projects/videoplayer";
+import { AudioPlayer } from "./pages/projects/audioplayer";
 
 const router = createBrowserRouter([
   {
@@ -17,9 +20,17 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "about", element: <About /> },
-      { path: "contact", element: <Contact /> },
-      { path: "projects", element: <Projects /> },
+      { path: "/about", element: <About /> },
+      { path: "/contact", element: <Contact /> },
+      {
+        path: "/projects",
+        element: <Projects />,
+        children: [
+          { path: "/projects/todo", element: <ToDoList /> },
+          { path: "/projects/videoplayer", element: <VideoPlayer /> },
+          { path: "/projects/audioplayer", element: <AudioPlayer /> },
+        ],
+      },
     ],
   },
 ]);
