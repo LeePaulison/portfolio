@@ -7,7 +7,7 @@ export const Projects = () => {
 
   return (
     <div className='flex h-full md:max-lg:flex-col'>
-      <div className='flex flex-col gap-3 md:max-lg:flex-row w-2/12 h-full md:max-lg:w-full p-4 border-r md:max-lg:border-b border-stone-300'>
+      <div className='flex flex-col gap-3 md:max-lg:flex-row w-2/12 h-full md:max-lg:h-auto md:max-lg:w-full p-4 border-r md:max-lg:border-b border-stone-300'>
         <NavLink className='font-bold' to='/projects'>
           Projects Home
         </NavLink>
