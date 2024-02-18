@@ -147,3 +147,21 @@ input[type="search"].loading {
     transform: rotate(360deg);
   }
 }
+
+.navSelect {
+  border: none;
+  background: none;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+
+.navSelect .navSelectOption {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.navSelect .navSelectOption div:hover,
+.navSelect .navSelectOption.active {
+  background-color: #f59e0b;
+}

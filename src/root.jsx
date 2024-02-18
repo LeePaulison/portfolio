@@ -1,4 +1,4 @@
-import { Outlet, NavLink, useLocation } from "react-router-dom";
+import { Outlet, NavLink, useLocation, useNavigate } from "react-router-dom";
 // components
 import { Welcome } from "./pages/welcome";
 
@@ -8,6 +8,12 @@ const headerStyle = {
 
 export const Root = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleSelect = (e) => {
+    console.log(e.target.value);
+    navigate(e.target.value);
+  };
 
   return (
     <div className='container h-full mx-auto flex flex-col'>
@@ -16,9 +22,32 @@ export const Root = () => {
           <NavLink className='font-lg font-bold' to='/'>
             Home
           </NavLink>
-          <NavLink className='font-bold' to='/projects'>
-            Projects
-          </NavLink>
+          <select className='navSelect' onChange={handleSelect}>
+            <option
+              value='/projects'
+              className={`navSelectOption ${location.pathname === "/projects" ? "active" : ""}`}
+            >
+              Projects
+            </option>
+            <option
+              value='/projects/todo'
+              className={`navSelectOption ${location.pathname === "/projects/todo" ? "active" : ""}`}
+            >
+              To Do List
+            </option>
+            <option
+              value='/projects/videoplayer'
+              className={`navSelectOption ${location.pathname === "/projects/videoplayer" ? "active" : ""}`}
+            >
+              Video Player
+            </option>
+            <option
+              value='/projects/audioplayer'
+              className={`navSelectOption ${location.pathname === "/projects/audioplayer" ? "active" : ""}`}
+            >
+              Audio Player
+            </option>
+          </select>
           <NavLink className='font-bold' to='/about'>
             About
           </NavLink>
