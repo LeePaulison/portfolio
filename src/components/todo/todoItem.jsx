@@ -1,11 +1,13 @@
 import { useLoaderData } from "react-router-dom";
 
-export const Edit = () => {
+export const ToDoItem = () => {
   const { todo } = useLoaderData();
+
+  console.log("ToDoItem", todo);
 
   return (
     <div>
-      <h1>Edit Todo</h1>
+      <h1>ToDoItem</h1>
       {todo && (
         <div>
           <h2>{todo.id}</h2>

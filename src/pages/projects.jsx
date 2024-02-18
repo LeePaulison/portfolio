@@ -6,8 +6,6 @@ export const Projects = () => {
   const location = useLocation();
 
   return (
-    <div className='flex h-full md:max-lg:flex-col'>
-      <div className='p-4'>{location.pathname === "/projects" ? <ProjectsHome /> : <Outlet />}</div>
-    </div>
+    <div className='flex h-full flex-col'>{location.pathname === "/projects" ? <ProjectsHome /> : <Outlet />}</div>
   );
 };
