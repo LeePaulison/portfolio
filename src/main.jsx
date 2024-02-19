@@ -17,7 +17,7 @@ import { VideoPlayer } from "./pages/projects/videoplayer";
 import { AudioPlayer } from "./pages/projects/audioplayer";
 
 import { allToDoLoader, todoLoader } from "./loaders/loaders";
-import { createToDoAction } from "./actions/actions";
+import { createToDoAction, updateToDoAction } from "./actions/actions";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
             loader: allToDoLoader,
             action: createToDoAction,
             children: [
-              { path: "/projects/todo/:todoId/edit", element: <Edit />, action: createToDoAction, loader: todoLoader },
+              { path: "/projects/todo/:todoId/edit", element: <Edit />, action: updateToDoAction, loader: todoLoader },
               { path: "/projects/todo/:todoId", element: <ToDoItem />, loader: todoLoader },
             ],
           },

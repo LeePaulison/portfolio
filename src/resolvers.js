@@ -19,8 +19,6 @@ export async function getAllTodos(query = "") {
 
 // get a single todo by id
 export async function getTodoById(id) {
-  console.log("ID", id);
-
   const list = await localforage.getItem("list");
   const todo = list.find((t) => t.id === id);
   //if (!todo) throw new Error("Todo not found");
@@ -33,8 +31,6 @@ export async function createToDo() {
   let todo = {
     id: id,
     createdAt: new Date(),
-    title: "",
-    description: "",
     completed: false,
   };
   let list = (await localforage.getItem("list")) || [];
@@ -45,9 +41,10 @@ export async function createToDo() {
 
 // update a todo by id
 export async function updateToDo(id, updates) {
+  console.log("ID", id);
   let list = await getAllTodos();
   let todo = list.find((t) => t.id === id);
-  if (!todo) throw new Error("Todo not found");
+  console.log("TODO", todo);
   Object.assign(todo, updates);
   await set(list);
   return todo;

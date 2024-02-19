@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export const ToDoList = ({ list }) => {
   console.log("ToDoList", list);
 
@@ -12,4 +14,8 @@ export const ToDoList = ({ list }) => {
         ))}
     </div>
   );
+};
+
+ToDoList.propTypes = {
+  list: PropTypes.array,
 };

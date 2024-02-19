@@ -22,11 +22,24 @@
     @apply border-gray-300;
     @apply rounded-md;
     @apply p-2;
+    @apply mb-3;
     @apply focus:outline-none;
     @apply focus:border-amber-500;
+    @apply bg-amber-50;
   }
+  textarea {
+    @apply border-2;
+    @apply border-gray-300;
+    @apply rounded-md;
+    @apply p-2;
+    @apply mb-3;
+    @apply focus:outline-none;
+    @apply focus:border-amber-500;
+    @apply bg-amber-50;
+  }
+
   button {
-    @apply bg-amber-500;
+    @apply bg-amber-600;
     @apply text-white;
     @apply font-bold;
     @apply p-2;
@@ -63,6 +76,7 @@
   .container {
     @apply bg-stone-100;
     @apply mx-auto;
+    @apply p-4;
   }
   .nav-link {
     @apply font-bold;
@@ -97,6 +111,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: #1c1917;
 
   font-family: "Nunito Sans", sans-serif;
   font-optical-sizing: auto;
@@ -104,10 +119,6 @@ body {
   font-style: normal;
   font-variation-settings: "wdth" 100, "YTLC" 500;
   line-height: 1.5;
-
-  color-scheme: light dark;
-  color: #1c1917;
-  background-color: #1c1917;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

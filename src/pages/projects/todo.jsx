@@ -25,7 +25,7 @@ export const ToDo = () => {
             </NavLink>
           ))}
       </div>
-      <div className='flex flex-col justify-center items-start w-full'>
+      <div className='flex flex-col justify-center items-center w-full'>
         {location.pathname === "/projects/todo" ? <ToDoList list={list} /> : <Outlet />}
       </div>
     </div>
