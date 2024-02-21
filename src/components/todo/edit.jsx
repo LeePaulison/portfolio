@@ -19,7 +19,6 @@ const toolbarOptions = {
     "textAlign",
     "colorPicker",
     "link",
-    "embedded",
     "emoji",
     "remove",
     "history",
@@ -44,6 +43,7 @@ export const Edit = () => {
       setEditorState(EditorState.createWithContent(contentState));
     }
   }, [todo.description]);
+
   return (
     <div
       className='bg-stone-50 border border-stone-300 rounded-md p-4 shadow-sm'
