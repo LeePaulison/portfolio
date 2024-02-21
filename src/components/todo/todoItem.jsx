@@ -6,17 +6,28 @@ export const ToDoItem = () => {
   console.log("ToDoItem", todo);
 
   return (
-    <div>
-      <h1>ToDoItem</h1>
+    <div className='card w-full'>
       {todo && (
-        <div>
-          <h2>{todo.id}</h2>
-          <Form action='edit'>
-            <button className='bg-amber-700 px-4 py-2' type='submit' role='button'>
-              Edit
-            </button>
-          </Form>
-        </div>
+        <>
+          <div className='card-header'>{todo.title}</div>
+          <div className='card-body'>
+            <div dangerouslySetInnerHTML={{ __html: todo.description }} />
+          </div>
+          <div className='card-footer'>
+            <div className='flex flex-row justify-end gap-4'>
+              <Form action='edit'>
+                <button className='bg-amber-700 px-4 py-2' type='submit' role='button'>
+                  Edit
+                </button>
+              </Form>
+              <Form method='post' action='destroy'>
+                <button className='btn-submit' type='submit' role='button'>
+                  Delete
+                </button>
+              </Form>
+            </div>
+          </div>
+        </>
       )}
     </div>
   );

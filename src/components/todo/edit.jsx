@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLoaderData, Form, useNavigation } from "react-router-dom";
+import { useLoaderData, Form, useNavigate } from "react-router-dom";
 // draft-js
 import { EditorState, convertToRaw, ContentState } from "draft-js";
 // react-draft-wysiwyg
@@ -27,7 +27,7 @@ const toolbarOptions = {
 
 export const Edit = () => {
   const { todo } = useLoaderData();
-  const { navigate } = useNavigation();
+  const { navigate } = useNavigate();
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
 
   const onEditorStateChange = (_editorState) => {
@@ -45,17 +45,10 @@ export const Edit = () => {
   }, [todo.description]);
 
   return (
-    <div
-      className='bg-stone-50 border border-stone-300 rounded-md p-4 shadow-sm'
-      style={{
-        minWidth: "400px",
-        maxWidth: "768px",
-      }}
-    >
-      <h1>Edit Todo</h1>
+    <div className='card'>
+      <div className='card-header'>Edit To Do </div>
       {todo && (
-        <Form method='post' className='flex flex-col'>
-          <h2>{todo.id}</h2>
+        <Form method='post' className='flex flex-col card-body'>
           <label htmlFor='title'>Title</label>
           <input id='title' type='text' defaultValue={todo.title} name='title' className='bg-none' />
           <label htmlFor='description'>Description</label>
@@ -73,7 +66,7 @@ export const Edit = () => {
             <button type='submit' className='btn-submit' role='button'>
               Save
             </button>
-            <button role='button' onClick={() => navigate(-1)}>
+            <button role='button' onClick={() => navigate("..", { relative: "path" })}>
               Cancel
             </button>
           </div>

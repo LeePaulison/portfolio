@@ -18,8 +18,8 @@
     @apply font-bold;
   }
   input {
-    @apply border-2;
-    @apply border-gray-300;
+    @apply border;
+    @apply border-stone-300;
     @apply rounded-md;
     @apply p-2;
     @apply mb-3;
@@ -28,8 +28,8 @@
     @apply bg-amber-50;
   }
   textarea {
-    @apply border-2;
-    @apply border-gray-300;
+    @apply border;
+    @apply border-stone-300;
     @apply rounded-md;
     @apply p-2;
     @apply mb-3;
@@ -62,7 +62,7 @@
   }
   select {
     @apply border-2;
-    @apply border-gray-300;
+    @apply border-stone-300;
     @apply rounded-md;
     @apply p-2;
     @apply focus:outline-none;
@@ -76,7 +76,6 @@
   .container {
     @apply bg-stone-100;
     @apply mx-auto;
-    @apply p-4;
   }
   .nav-link {
     @apply font-bold;
@@ -97,6 +96,36 @@
     @apply transition-colors;
     @apply duration-300;
     @apply ease-in-out;
+  }
+  .card {
+    @apply bg-stone-200;
+    @apply border-stone-300;
+    @apply rounded-md;
+    @apply shadow-md;
+    @apply max-w-[768px];
+  }
+  .card-header {
+    @apply bg-stone-300;
+    @apply p-4;
+    @apply border-b;
+    @apply border-stone-400;
+    @apply rounded-t-md;
+    @apply font-bold;
+    @apply text-lg;
+  }
+  .card-body {
+    @apply p-4;
+  }
+  .card-footer {
+    @apply p-2;
+    @apply border-t;
+    @apply border-stone-400;
+  }
+
+  .card-body * ul {
+    @apply list-disc;
+    @apply pl-4;
+    @apply list-inside;
   }
 }
 
@@ -176,4 +205,7 @@ input[type="search"].loading {
 .navSelect .navSelectOption div:hover,
 .navSelect .navSelectOption.active {
   background-color: #f59e0b;
+}
+
+.card-body * ul {
 }
