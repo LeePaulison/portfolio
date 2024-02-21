@@ -1,0 +1,29 @@
+.wrapper-class {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.editor-class {
+  background-color: #fffbeb;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  margin: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid #d6d3d1;
+  border-radius: 8px;
+}
+
+.toolbar-class {
+  background: #fafaf9;
+  border: 1px solid #d6d3d1;
+  border-radius: 8px;
+}
+
+.rdw-option-wrapper {
+  background-color: #fafaf9;
+}
