@@ -16,7 +16,7 @@ export const ToDoItem = () => {
           <div className='card-footer'>
             <div className='flex flex-row justify-end gap-4'>
               <Form action='edit'>
-                <button className='bg-amber-700 px-4 py-2' type='submit' role='button'>
+                <button className='btn' type='submit' role='button'>
                   Edit
                 </button>
               </Form>

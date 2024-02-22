@@ -18,6 +18,16 @@
   border-radius: 8px;
 }
 
+.editor-class * ul {
+  list-style: inherit;
+  list-style-position: inherit;
+}
+
+.editor-class * ol {
+  list-style: inherit;
+  list-style-position: inherit;
+}
+
 .toolbar-class {
   background: #fafaf9;
   border: 1px solid #d6d3d1;

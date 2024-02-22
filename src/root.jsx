@@ -23,33 +23,12 @@ export const Root = () => {
           <NavLink className='font-lg font-bold' to='/'>
             Home
           </NavLink>
-          {/* <CustomSelect options={options} onChange={handleSelect} /> */}
-          <select className='navSelect' onChange={handleSelect} onClick={(e) => handleSelectClick(e)}>
-            <option
-              value='/projects'
-              className={`navSelectOption ${location.pathname === "/projects" ? "active" : ""}`}
-            >
-              Projects
-            </option>
-            <option
-              value='/projects/todo'
-              className={`navSelectOption ${location.pathname === "/projects/todo" ? "active" : ""}`}
-            >
-              To Do List
-            </option>
-            <option
-              value='/projects/videoplayer'
-              className={`navSelectOption ${location.pathname === "/projects/videoplayer" ? "active" : ""}`}
-            >
-              Video Player
-            </option>
-            <option
-              value='/projects/audioplayer'
-              className={`navSelectOption ${location.pathname === "/projects/audioplayer" ? "active" : ""}`}
-            >
-              Audio Player
-            </option>
-          </select>
+          <NavLink className='font-lg font-bold' to='/projects/todo'>
+            To Do List
+          </NavLink>
+          <NavLink className='font-lg font-bold' to='/projects/videoplayer'>
+            Video Player
+          </NavLink>
           <NavLink className='font-bold' to='/about'>
             About
           </NavLink>

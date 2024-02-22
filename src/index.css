@@ -42,13 +42,15 @@
     @apply bg-amber-600;
     @apply text-white;
     @apply font-bold;
-    @apply p-2;
+    @apply py-2;
+    @apply px-4;
     @apply rounded-md;
     @apply transition-colors;
     @apply duration-300;
     @apply ease-in-out;
-    @apply hover:bg-amber-700;
+    @apply hover:bg-amber-900;
   }
+
   a.button {
     @apply bg-amber-500;
     @apply text-white;
@@ -87,7 +89,21 @@
     @apply duration-300;
     @apply ease-in-out;
   }
+  .btn {
+    @apply bg-amber-600;
+    @apply text-white;
+    @apply font-bold;
+    @apply py-2;
+    @apply px-4;
+    @apply rounded-md;
+    @apply transition-colors;
+    @apply duration-300;
+    @apply ease-in-out;
+    @apply hover:bg-amber-900;
+  }
+
   .btn-submit {
+    @apply bg-transparent;
     @apply border-amber-700;
     @apply border;
     @apply border-solid;

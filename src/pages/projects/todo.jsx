@@ -4,7 +4,7 @@ import { ToDoList } from "../../components/todo/todoList";
 
 const NewToDo = () => (
   <Form method='post'>
-    <button type='submit' className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+    <button type='submit' className='btn'>
       New ToDo
     </button>
   </Form>
@@ -20,8 +20,12 @@ export const ToDo = () => {
         <NewToDo />
         {list.length > 0 &&
           list.map((todo) => (
-            <NavLink key={todo.id} to={`/projects/todo/${todo.id}`} className='text-blue-500 hover:text-blue-700'>
-              {todo.id}
+            <NavLink
+              key={todo.id}
+              to={`/projects/todo/${todo.id}`}
+              className='p-2 my-2 hover:bg-amber-700 hover:text-stone-50 border border-amber-700 rounded-md'
+            >
+              {todo.title}
             </NavLink>
           ))}
       </div>
