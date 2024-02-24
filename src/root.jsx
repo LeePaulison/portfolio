@@ -1,24 +1,13 @@
-import { Outlet, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, NavLink, useLocation } from "react-router-dom";
 // components
 import { Welcome } from "./pages/welcome";
 
 export const Root = () => {
   const location = useLocation();
-  const navigate = useNavigate();
-
-  const handleSelect = (e) => {
-    navigate(e.target.value);
-  };
-
-  const handleSelectClick = (e) => {
-    if (location.pathname !== e.target.value) {
-      navigate(e.target.value);
-    }
-  };
 
   return (
     <div className='container h-full mx-auto flex flex-col'>
-      <header className='w-full p-8 pb-4 border-b border-stone-300'>
+      <header className='w-full px-8 pb-1 pt-10 border-b border-stone-300'>
         <div className='flex flex-row justify-end gap-4'>
           <NavLink className='font-lg font-bold' to='/'>
             Home

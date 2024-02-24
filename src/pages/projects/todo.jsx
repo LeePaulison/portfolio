@@ -15,21 +15,17 @@ export const ToDo = () => {
   console.log("List", list);
 
   return (
-    <div className='flex sm:flex-col md:flex-row h-full'>
-      <div className='flex sm:flex-row md:flex-col sm:w-full md:h-full md:w-2/12 md:border-r border-stone-300 p-4'>
+    <div className='flex flex-col md:flex-row h-full'>
+      <div className='flex flex-row gap-4 md:flex-col sm:w-full md:h-full md:w-4/12 xl:w-2/12 md:border-r border-stone-300 p-4'>
         <NewToDo />
         {list.length > 0 &&
           list.map((todo) => (
-            <NavLink
-              key={todo.id}
-              to={`/projects/todo/${todo.id}`}
-              className='p-2 my-2 hover:bg-amber-700 hover:text-stone-50 border border-amber-700 rounded-md'
-            >
+            <NavLink key={todo.id} to={`/projects/todo/${todo.id}`} className='nav-link'>
               {todo.title}
             </NavLink>
           ))}
       </div>
-      <div className='flex flex-col justify-center items-center w-full'>
+      <div className='flex flex-col justify-center items-center w-full p-4'>
         {location.pathname === "/projects/todo" ? <ToDoList list={list} /> : <Outlet />}
       </div>
     </div>
