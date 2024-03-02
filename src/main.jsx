@@ -9,12 +9,10 @@ import { Root } from "./root";
 import { ErrorPage } from "./errorpage";
 import { About } from "./pages/about";
 import { Contact } from "./pages/contact";
-import { Projects } from "./pages/projects";
 import { ToDo } from "./pages/projects/todo";
 import { Edit } from "./components/todo/edit";
 import { ToDoItem } from "./components/todo/todoItem";
 import { VideoPlayer } from "./pages/projects/videoplayer";
-import { AudioPlayer } from "./pages/projects/audioplayer";
 
 import { allToDoLoader, todoLoader } from "./loaders/loaders";
 import { createToDoAction, updateToDoAction, deleteToDoAction } from "./actions/actions";
@@ -24,27 +22,59 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
+    handle: {
+      crumbs: () => "Home",
+    },
     children: [
-      { path: "/about", element: <About /> },
-      { path: "/contact", element: <Contact /> },
       {
-        path: "/projects",
-        element: <Projects />,
+        path: "/about",
+        element: <About />,
+        handle: {
+          crumbs: () => "About",
+        },
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+        handle: {
+          crumbs: () => "Contact",
+        },
+      },
+      {
+        path: "/todolist",
+        element: <ToDo />,
+        handle: {
+          crumbs: () => "To Do List",
+        },
+        loader: allToDoLoader,
+        action: createToDoAction,
         children: [
           {
-            path: "/projects/todo",
-            element: <ToDo />,
-            loader: allToDoLoader,
-            action: createToDoAction,
-            children: [
-              { path: "/projects/todo/:todoId/edit", element: <Edit />, action: updateToDoAction, loader: todoLoader },
-              { path: "/projects/todo/:todoId", element: <ToDoItem />, loader: todoLoader },
-              { path: "/projects/todo/:todoId/destroy", action: deleteToDoAction },
-            ],
+            path: "/todolist/:todoId/edit",
+            element: <Edit />,
+            handle: {
+              crumbs: () => "Edit ToDo",
+            },
+            action: updateToDoAction,
+            loader: todoLoader,
           },
-          { path: "/projects/videoplayer", element: <VideoPlayer /> },
-          { path: "/projects/audioplayer", element: <AudioPlayer /> },
+          {
+            path: "/todolist/:todoId",
+            element: <ToDoItem />,
+            handle: {
+              crumbs: () => `ToDo Item`,
+            },
+            loader: todoLoader,
+          },
+          { path: "/todolist/:todoId/destroy", action: deleteToDoAction },
         ],
+      },
+      {
+        path: "/videoplayer",
+        element: <VideoPlayer />,
+        handle: {
+          crumbs: () => "Video Player",
+        },
       },
     ],
   },

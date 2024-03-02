@@ -5,7 +5,7 @@ import { createToDo, updateToDo, deleteToDo } from "../resolvers";
 
 export async function createToDoAction() {
   const todo = await createToDo();
-  return redirect(`/projects/todo/${todo.id}/edit`);
+  return redirect(`/todolist/${todo.id}/edit`);
 }
 
 export async function updateToDoAction({ params, request }) {
@@ -14,11 +14,11 @@ export async function updateToDoAction({ params, request }) {
   const updates = Object.fromEntries(formData);
   console.log("updates: ", updates);
   await updateToDo(params.todoId, updates);
-  return redirect(`/projects/todo/:todoId`);
+  return redirect(`/todolist/:todoId`);
 }
 
 export async function deleteToDoAction({ params }) {
   console.log("Params: ", params);
   deleteToDo(params.todoId);
-  return redirect(`/projects/todo/`);
+  return redirect(`/todolist/`);
 }
