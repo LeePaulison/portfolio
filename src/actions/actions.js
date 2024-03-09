@@ -14,11 +14,11 @@ export async function updateToDoAction({ params, request }) {
   const updates = Object.fromEntries(formData);
   console.log("updates: ", updates);
   await updateToDo(params.todoId, updates);
-  return redirect(`/todolist/:todoId`);
+  return redirect(`/todolist`);
 }
 
 export async function deleteToDoAction({ params }) {
   console.log("Params: ", params);
   deleteToDo(params.todoId);
-  return redirect(`/todolist/`);
+  return redirect(`/todolist`);
 }

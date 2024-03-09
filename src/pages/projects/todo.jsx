@@ -1,6 +1,7 @@
 import { Outlet, useLoaderData, Form, NavLink } from "react-router-dom";
 // components
 import { ToDoList } from "../../components/todo/todoList";
+import { Navigation } from "../../components/navigation";
 
 const NewToDo = () => (
   <Form method='post'>
@@ -12,6 +13,7 @@ const NewToDo = () => (
 export const ToDo = () => {
   const { list } = useLoaderData();
 
+  console.log("Location", location);
   console.log("List", list);
 
   return (
@@ -26,7 +28,10 @@ export const ToDo = () => {
         <NewToDo />
       </div>
       <div className='flex flex-col justify-center items-center w-full p-4'>
-        {location.pathname === "/todolist" ? <ToDoList list={list} /> : <Outlet />}
+        <Navigation />
+        <div className='grow flex flex-col justify-center items-center'>
+          {location.pathname === "/todolist" ? <ToDoList list={list} /> : <Outlet />}
+        </div>
       </div>
     </div>
   );

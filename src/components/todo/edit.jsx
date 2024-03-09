@@ -27,7 +27,7 @@ const toolbarOptions = {
 
 export const Edit = () => {
   const { todo } = useLoaderData();
-  const { navigate } = useNavigate();
+  const navigate = useNavigate();
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
 
   const onEditorStateChange = (_editorState) => {
