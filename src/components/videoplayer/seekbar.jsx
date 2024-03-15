@@ -24,7 +24,7 @@ const SeekBar = React.forwardRef(function Seekbar(props, ref) {
     cancelAnimationFrame(whilePlaying);
   };
 
-  React.useImperativeHandle(seekbarRef, () => ({
+  React.useImperativeHandle(ref, () => ({
     whilePlaying,
     notPlaying,
   }));
@@ -41,7 +41,7 @@ const SeekBar = React.forwardRef(function Seekbar(props, ref) {
   };
 
   return (
-    <div ref={ref} className='flex flex-row content-center gap-3 p-4 align-middle'>
+    <div className='flex flex-row content-center gap-3 p-4 align-middle'>
       {displayTime(ct)}
       <input
         type='range'
