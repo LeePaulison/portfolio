@@ -22,7 +22,7 @@
     @apply text-base;
     @apply font-bold;
   }
-  input {
+  input:not([type="range"]) {
     @apply border;
     @apply border-stone-300;
     @apply rounded-md;

@@ -15,7 +15,7 @@ export const VideoPlayer = () => {
   const [duration, setDuration] = React.useState(0);
 
   return (
-    <div className='flex flex-col justify-center'>
+    <div className='flex flex-col items-center'>
       <h1>Videoplayer</h1>
       <div className='video-player' style={videoStyle}>
         <video

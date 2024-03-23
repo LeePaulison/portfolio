@@ -30,7 +30,7 @@ export const Root = () => {
         </div>
       </header>
       {location.pathname === "/" ? <Welcome /> : <Outlet />}
-      <div className='flex items-center justify-center'>
+      {/*       <div className='flex items-center justify-center'>
         <div className='bg-stone-200 p-6 rounded-lg shadow-lg'>
           <h2 className='text-2xl font-bold text-stone-900 mb-2'>User Profile</h2>
           <div className='mb-4'>
@@ -43,6 +43,7 @@ export const Root = () => {
           </div>
         </div>
       </div>
+ */}{" "}
     </div>
   );
 };
