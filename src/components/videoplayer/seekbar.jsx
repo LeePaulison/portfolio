@@ -40,6 +40,48 @@ const SeekBar = React.forwardRef(function Seekbar(props, ref) {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
+import React from "react";
+import PropTypes from "prop-types";
+
+const animationFrame = window.requestAnimationFrame;
+const cancelAnimationFrame = window.cancelAnimationFrame;
+const UPDATE_INTERVAL = 250; // update every 250ms
+
+const SeekBar = React.forwardRef(function Seekbar(props, ref) {
+  const { videoPlayer, state } = props;
+  const { duration, setSync } = state;
+  const seekbarRef = React.useRef(null);
+  const [ct, setCT] = React.useState(0);
+  let previousTime = 0;
+
+  const whilePlaying = () => {
+    if (Date.now() - previousTime >= UPDATE_INTERVAL) {
+      setCT(videoPlayer.current.currentTime);
+      previousTime = Date.now();
+    }
+    animationFrame(whilePlaying);
+  };
+
+  const notPlaying = () => {
+    cancelAnimationFrame(whilePlaying);
+  };
+
+  React.useImperativeHandle(ref, () => ({
+    whilePlaying,
+    notPlaying,
+  }));
+
+  const displayTime = (time) => {
+    if (isNaN(time)) {
+      return "0:00";
+    }
+
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  };
+
   return (
     <div className='flex flex-row content-center gap-3 p-4 align-middle'>
       {displayTime(ct)}
