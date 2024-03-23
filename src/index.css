@@ -3,7 +3,7 @@
 @layer base {
   body {
     @apply bg-stone-900;
-    @apply text-stone-300;
+    @apply text-stone-700;
   }
 
   h1 {
@@ -29,7 +29,7 @@
     @apply p-2;
     @apply mb-3;
     @apply focus:outline-none;
-    @apply focus:border-amber-500;
+    @apply focus:border-amber-700;
     @apply bg-amber-50;
   }
   textarea {
@@ -39,7 +39,7 @@
     @apply p-2;
     @apply mb-3;
     @apply focus:outline-none;
-    @apply focus:border-amber-500;
+    @apply focus:border-amber-700;
     @apply bg-amber-50;
   }
 
@@ -53,11 +53,11 @@
     @apply transition-colors;
     @apply duration-300;
     @apply ease-in-out;
-    @apply hover:bg-amber-900;
+    @apply hover:bg-amber-800;
   }
   a {
     @apply font-bold;
-    @apply hover:text-amber-500;
+    @apply hover:text-amber-700;
     @apply transition-colors;
     @apply duration-300;
     @apply ease-in-out;
@@ -66,7 +66,7 @@
     @apply font-bold;
     @apply p-2;
     @apply rounded-md;
-    @apply hover:text-amber-500;
+    @apply hover:text-amber-700;
     @apply hover:underline;
     @apply hover:underline-offset-4;
     @apply transition-all;
@@ -81,7 +81,7 @@
     @apply rounded-md;
     @apply p-2;
     @apply focus:outline-none;
-    @apply focus:border-amber-500;
+    @apply focus:border-amber-700;
   }
 }
 
@@ -104,7 +104,7 @@
     @apply py-2;
     @apply px-4;
     @apply border;
-    @apply border-amber-900;
+    @apply border-amber-600;
     @apply rounded-md;
     @apply transition-colors;
     @apply duration-300;
@@ -114,7 +114,7 @@
 
   .btn-submit {
     @apply bg-transparent;
-    @apply border-amber-700;
+    @apply border-amber-600;
     @apply border;
     @apply border-solid;
     @apply text-stone-900;
@@ -155,15 +155,15 @@
   }
   .nav-link {
     @apply border;
-    @apply border-amber-900;
+    @apply border-amber-600;
     @apply rounded-md;
     @apply py-2;
     @apply px-4;
     @apply font-bold;
     @apply text-base;
     @apply no-underline;
-    @apply text-stone-300;
-    @apply hover:bg-amber-700;
+    @apply text-stone-700;
+    @apply hover:bg-amber-600;
     @apply hover:text-stone-50;
     @apply transition-all;
     @apply duration-300;
@@ -174,15 +174,14 @@
 @tailwind utilities;
 
 body {
-  height: 100dvh;
-  width: 100dvw;
+  height: 100dvb;
+  width: 100dvi;
 }
 
 #root {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: #1c1917;
 
   font-family: "Nunito Sans", sans-serif;
   font-optical-sizing: auto;
@@ -250,4 +249,8 @@ input[type="search"].loading {
 }
 
 .card-body * ul {
+}
+
+.video-player {
+  width: 640px;
 }
