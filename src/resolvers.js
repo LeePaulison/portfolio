@@ -52,9 +52,13 @@ export async function updateToDo(id, updates) {
 
 // delete a todo by id
 export async function deleteToDo(id) {
-  let list = await getAllTodos();
+  console.log("ID", id);
+  let list = await localforage.getItem("list");
   let index = list.findIndex((t) => t.id === id);
-  if (index === -1) throw new Error("Todo not found");
-  list.splice(index, 1);
-  await set(list);
+  if (index > -1) {
+    list.splice(index, 1);
+    await set(list);
+    return true;
+  }
+  return false;
 }

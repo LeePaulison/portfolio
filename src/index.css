@@ -99,7 +99,7 @@
   }
   .btn {
     @apply bg-amber-600;
-    @apply text-white;
+    @apply text-stone-50;
     @apply font-bold;
     @apply py-2;
     @apply px-4;
@@ -118,34 +118,45 @@
     @apply border;
     @apply border-solid;
     @apply text-stone-900;
-    @apply hover:text-white;
+    @apply hover:text-stone-50;
     @apply transition-colors;
     @apply duration-300;
     @apply ease-in-out;
   }
   .card {
-    @apply bg-stone-200;
+    @apply flex;
+    @apply flex-col;
+    @apply bg-stone-100;
+    @apply border;
     @apply border-stone-300;
     @apply rounded-md;
-    @apply shadow-md;
+    @apply shadow-lg;
+    @apply w-full;
     @apply max-w-[768px];
+    @apply min-h-[200px];
+  }
+  .card:not(:last-child) {
+    @apply mb-4;
   }
   .card-header {
-    @apply bg-stone-300;
-    @apply p-4;
+    @apply bg-stone-200;
+    @apply px-4;
+    @apply py-2;
     @apply border-b;
-    @apply border-stone-400;
+    @apply border-stone-300;
     @apply rounded-t-md;
     @apply font-bold;
     @apply text-lg;
   }
   .card-body {
     @apply p-4;
+    @apply grow;
   }
   .card-footer {
     @apply p-2;
+    @apply bg-stone-200;
     @apply border-t;
-    @apply border-stone-400;
+    @apply border-stone-300;
   }
 
   .card-body * ul {
@@ -163,7 +174,7 @@
     @apply text-base;
     @apply no-underline;
     @apply text-stone-700;
-    @apply hover:bg-amber-600;
+    @apply hover:bg-amber-700;
     @apply hover:text-stone-50;
     @apply transition-all;
     @apply duration-300;

@@ -9,16 +9,13 @@ export async function createToDoAction() {
 }
 
 export async function updateToDoAction({ params, request }) {
-  console.log("params: ", params);
   const formData = await request.formData();
   const updates = Object.fromEntries(formData);
-  console.log("updates: ", updates);
   await updateToDo(params.todoId, updates);
   return redirect(`/todolist`);
 }
 
 export async function deleteToDoAction({ params }) {
-  console.log("Params: ", params);
-  deleteToDo(params.todoId);
+  await deleteToDo(params.todoId);
   return redirect(`/todolist`);
 }

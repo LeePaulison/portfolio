@@ -29,7 +29,7 @@ export const ToDo = () => {
       </div>
       <div className='flex flex-col justify-center items-center w-full p-4'>
         <Navigation />
-        <div className='grow flex flex-col justify-center items-center'>
+        <div className='grow flex flex-col justify-center items-center w-full'>
           {location.pathname === "/todolist" ? <ToDoList list={list} /> : <Outlet />}
         </div>
       </div>
