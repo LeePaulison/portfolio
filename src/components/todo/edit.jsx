@@ -52,7 +52,6 @@ export const Edit = () => {
           <label htmlFor='title'>Title</label>
           <input id='title' type='text' defaultValue={todo.title} name='title' className='bg-none' />
           <label htmlFor='description'>Description</label>
-          {/* <textarea id='description' defaultValue={todo.description} name='description' /> */}
           <Editor
             editorState={editorState}
             onEditorStateChange={onEditorStateChange}

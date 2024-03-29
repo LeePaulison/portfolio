@@ -26,13 +26,14 @@ export async function getTodoById(id) {
 }
 
 // create a new todo
-export async function createToDo() {
+export async function createToDo(content) {
   let id = Math.random().toString(36).substring(3, 12);
   let todo = {
     id: id,
     createdAt: new Date(),
     completed: false,
   };
+  Object.assign(todo, content);
   let list = (await localforage.getItem("list")) || [];
   list.unshift(todo);
   await set(list);
@@ -41,10 +42,8 @@ export async function createToDo() {
 
 // update a todo by id
 export async function updateToDo(id, updates) {
-  console.log("ID", id);
   let list = await getAllTodos();
   let todo = list.find((t) => t.id === id);
-  console.log("TODO", todo);
   Object.assign(todo, updates);
   await set(list);
   return todo;

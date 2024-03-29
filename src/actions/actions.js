@@ -3,9 +3,11 @@ import { redirect } from "react-router-dom";
 // resolvers are imported here and called to perform the action
 import { createToDo, updateToDo, deleteToDo } from "../resolvers";
 
-export async function createToDoAction() {
-  const todo = await createToDo();
-  return redirect(`/todolist/${todo.id}/edit`);
+export async function createToDoAction({ request }) {
+  const formData = await request.formData();
+  const content = Object.fromEntries(formData);
+  const todo = await createToDo(content);
+  return redirect(`/todolist/${todo.id}`);
 }
 
 export async function updateToDoAction({ params, request }) {

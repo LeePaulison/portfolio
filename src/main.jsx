@@ -10,6 +10,7 @@ import { ErrorPage } from "./errorpage";
 import { About } from "./pages/about";
 import { Contact } from "./pages/contact";
 import { ToDo } from "./pages/projects/todo";
+import { Create } from "./components/todo/create";
 import { Edit } from "./components/todo/edit";
 import { ToDoItem } from "./components/todo/todoItem";
 import { VideoPlayer } from "./pages/projects/videoplayer";
@@ -47,8 +48,15 @@ const router = createBrowserRouter([
           crumbs: () => "To Do List",
         },
         loader: allToDoLoader,
-        action: createToDoAction,
         children: [
+          {
+            path: "/todolist/create",
+            element: <Create />,
+            handle: {
+              crumbs: () => "Create ToDo",
+            },
+            action: createToDoAction,
+          },
           {
             path: "/todolist/:todoId/edit",
             element: <Edit />,
