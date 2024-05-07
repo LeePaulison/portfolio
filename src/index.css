@@ -265,3 +265,9 @@ input[type="search"].loading {
 .video-player {
   width: 640px;
 }
+
+#hero-logo {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+}
