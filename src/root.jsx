@@ -1,12 +1,12 @@
 import { Outlet, NavLink, useLocation } from "react-router-dom";
 // components
-import { Welcome } from "./pages/welcome";
+import { Welcome } from "./pages/welcome/welcome";
 
 export const Root = () => {
   const location = useLocation();
 
   return (
-    <div className='container min-h-screen mx-auto flex flex-col bg-stone-100'>
+    <div className='container min-h-screen mx-auto flex flex-col bg-stone-100 overflow-hidden'>
       <header className='w-full ps-4 pe-8 pb-1 pt-4 border-b border-stone-300'>
         <div className='flex flex-row justify-between'>
           <span className='text-3xl font-extrabold'>LP</span>

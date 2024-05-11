@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "date": "15th June 2024",
+    "title": "Advanced Automation Corporation - DLI Project 0018",
+    "description": "This project is a web application built for Advanced Automation Corporation. The application is a Learning Management System (LMS) that allows users to take courses and quizzes. The application is built using React and Redux. The application is also SCORM compliant. The application is currently in progress.",
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "React",
+      "Redux",
+      "Bootstrap",
+      "SCORM - LMS"
+    ],
+    "status": "In Progress",
+    "media": {
+      "type": "image",
+      "url": "https://via.placeholder.com/150",
+      "alt": "Image 1"
+    }
+  },
+  {
+    "id": 2,
+    "date": "15th June 2024",
+    "title": "Project 2",
+    "description": "Description 2",
+    "technologies": [
+      "Technology 1",
+      "Technology 2"
+    ],
+    "status": "Status 2",
+    "media": {
+      "type": "image",
+      "url": "https://via.placeholder.com/150",
+      "alt": "Image 2"
+    }
+  }
+]

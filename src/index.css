@@ -271,3 +271,37 @@ input[type="search"].loading {
   border-radius: 50%;
   overflow: hidden;
 }
+
+.skill-logo {
+  height: 100%;
+  max-height: 4rem;
+  width: auto;
+  margin: 0 1rem;
+}
+
+.timeline ul li {
+  position: relative;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.timeline ul li::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(245, 158, 11);
+  border-radius: 50%;
+  top: 54px;
+  left: -0.65rem;
+}
+
+.timeline ul li:hover {
+  background-color: #1c1917;
+  border-radius: 0.25rem;
+}
+
+.timeline ul li:hover::before {
+  background-color: rgb(245, 158, 11);
+  box-shadow: 0 0 10px 2px rgb(245, 158, 11);
+}
