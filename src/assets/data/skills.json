@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "technology": "HTML5",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5",
+    "description": "HTML5 is a markup language used for structuring and presenting content on the World Wide Web.",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
+    "alt": "HTML5 logo"
+  },
+  {
+    "id": 2,
+    "technology": "CSS3",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    "description": "CSS3 is the latest evolution of the Cascading Style Sheets language and aims at extending CSS2.",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
+    "alt": "CSS3 logo"
+  },
+  {
+    "id": 3,
+    "technology": "JavaScript",
+    "url": "https://www.javascript.com/",
+    "description": "JavaScript is a high-level, interpreted programming language that conforms to the ECMAScript specification.",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+    "alt": "JavaScript logo"
+  },
+  {
+    "id": 4,
+    "technology": "React",
+    "url": "https://reactjs.org/",
+    "description": "React is a JavaScript library for building user interfaces.",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+    "alt": "React logo"
+  },
+  {
+    "id": 5,
+    "technology": "Bootstrap",
+    "url": "https://getbootstrap.com/",
+    "description": "Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg",
+    "alt": "Bootstrap logo"
+  },
+  {
+    "id": 6,
+    "technology": "Tailwind CSS",
+    "url": "https://tailwindcss.com/",
+    "description": "Tailwind CSS is a utility-first CSS framework for rapidly building custom designs.",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
+    "alt": "Tailwind CSS logo"
+  },
+  {
+    "id": 7,
+    "technology": "SASS",
+    "url": "https://sass-lang.com/",
+    "description": "Sass is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets.",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/9/96/Sass_Logo_Color.svg",
+    "alt": "SASS logo"
+  },
+  {
+    "id": 8,
+    "technology": "Figma",
+    "url": "https://www.figma.com/",
+    "description": "Figma is a vector graphics editor and prototyping tool which is primarily web-based.",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
+    "alt": "Figma logo"
+  }
+]

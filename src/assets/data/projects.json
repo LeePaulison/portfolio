@@ -3,7 +3,7 @@
     "id": 1,
     "date": "15th June 2024",
     "title": "Advanced Automation Corporation - DLI Project 0018",
-    "description": "This project is a web application built for Advanced Automation Corporation. The application is a Learning Management System (LMS) that allows users to take courses and quizzes. The application is built using React and Redux. The application is also SCORM compliant. The application is currently in progress.",
+    "description": "This project is an e-Learning application to teach foreign language for Advanced Automation Corporation. This application is built using HTML5, CSS3, JavaScript, ReactJS, and Bootstrap. Additional packages include but are not limited to Three.JS, Redux, React Router, Material-UI, and many others. The application is currently in progress.",
     "technologies": [
       "HTML5",
       "CSS3",
@@ -22,18 +22,60 @@
   },
   {
     "id": 2,
-    "date": "15th June 2024",
-    "title": "Project 2",
-    "description": "Description 2",
+    "date": "1st May 2024",
+    "title": "To-do using Local Storage",
+    "description": "Simple To-do application built using React.JS, and TailwindCSS. The application uses local storage to store the to-do items. React Router is used to navigate between pages and components. CRUD (Create, Read, Update, Delete) operations are implemented through Actions and Loaders. Actions handle Create (C), Update (U), and Delete (D), the Loaders handle the Read (R) aspects of CRUD. The application is completed and deployed.",
     "technologies": [
-      "Technology 1",
-      "Technology 2"
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "React",
+      "TailwindCSS",
+      "React Router"
     ],
-    "status": "Status 2",
+    "status": "Completed",
     "media": {
       "type": "image",
       "url": "https://via.placeholder.com/150",
       "alt": "Image 2"
+    }
+  },
+  {
+    "id": 3,
+    "date": "29th September 2022",
+    "title": "Potowatomi Training LLC - Project 92F10",
+    "description": "This project is an e-Learning application for Potowatomi Training LLC. The application is built using HTML5, CSS3, JavaScript, jQuery, and Bootstrap. The focus of this application is Military Resupply Operations. The application is completed and deployed.",
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "jQuery",
+      "Bootstrap"
+    ],
+    "status": "Completed",
+    "media": {
+      "type": "image",
+      "url": "https://via.placeholder.com/150",
+      "alt": "Image 3"
+    }
+  },
+  {
+    "id": 4,
+    "date": "15th April 2022",
+    "title": "Potowatomi Training LLC - DLI Project 0045",
+    "description": "This project is an e-Learning application to teach foreign language for Potowatomi Training LLC. The application is built using HTML5, CSS3, JavaScript, jQuery, and Bootstrap. The application is completed and deployed.",
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "jQuery",
+      "Bootstrap"
+    ],
+    "status": "Completed",
+    "media": {
+      "type": "image",
+      "url": "https://via.placeholder.com/150",
+      "alt": "Image 4"
     }
   }
 ]
