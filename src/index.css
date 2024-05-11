@@ -98,6 +98,18 @@
     @apply border-e-stone-800;
   }
   .btn {
+    @apply bg-transparent;
+    @apply border-amber-600;
+    @apply border;
+    @apply border-solid;
+    @apply text-stone-900;
+    @apply hover:text-stone-50;
+    @apply transition-colors;
+    @apply duration-300;
+    @apply ease-in-out;
+  }
+
+  .btn-submit {
     @apply bg-amber-600;
     @apply text-stone-50;
     @apply font-bold;
@@ -110,18 +122,6 @@
     @apply duration-300;
     @apply ease-in-out;
     @apply hover:bg-amber-700;
-  }
-
-  .btn-submit {
-    @apply bg-transparent;
-    @apply border-amber-600;
-    @apply border;
-    @apply border-solid;
-    @apply text-stone-900;
-    @apply hover:text-stone-50;
-    @apply transition-colors;
-    @apply duration-300;
-    @apply ease-in-out;
   }
   .card {
     @apply flex;
