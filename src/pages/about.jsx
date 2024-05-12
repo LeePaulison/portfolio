@@ -1,6 +1,6 @@
 export const About = () => {
   return (
-    <div className='max-w-[720px] mx-auto'>
+    <div className='max-w-[720px] mx-auto grow'>
       <h1 className='my-4'>About</h1>
       <p className='mb-4'>
         Buzz words. Simply put they are not who I am. Yes, they describe my work in 10 words or less, but again, they
