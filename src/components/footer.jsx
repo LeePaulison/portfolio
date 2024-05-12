@@ -31,6 +31,15 @@ export function Footer() {
             >
               <i className='fa fa-github'></i>
             </a>
+            <a
+              href='https://github.com/LeePJrAAC/portfolio'
+              className='text-stone-300 hover:text-amber-500'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <i className='fa fa-github'></i> Repository
+            </a>
+
             <a href='/contact' className='text-stone-300 hover:text-amber-500'>
               Contact Me
             </a>
