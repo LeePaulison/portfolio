@@ -66,7 +66,7 @@
     @apply font-bold;
     @apply p-2;
     @apply rounded-md;
-    @apply hover:text-amber-700;
+    @apply hover:text-amber-500;
     @apply hover:underline;
     @apply hover:underline-offset-4;
     @apply transition-all;
