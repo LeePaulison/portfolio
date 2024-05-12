@@ -10,7 +10,7 @@ export function Hero() {
       <div className='max-w-[50%] me-8'>
         <div className='text-2xl'>
           I build pixel-perfect accessible engaging online experiences with a focus in 508a compliance. My name is{" "}
-          <span className='text-3xl font-bold'>Lee Paulison</span>, and I am a Junior Frontend Developer.
+          <span className='text-3xl font-bold'>Lee Paulison</span>, and I am a Junior Front-end Developer.
         </div>
         <button className='btn-submit mt-3' onClick={() => navigate("/contact")}>
           Contact Me
