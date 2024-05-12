@@ -15,9 +15,13 @@ export function Contact() {
   });
 
   useEffect(() => {
+    document.getElementById("name").addEventListener("input", validateMessage);
     document.getElementById("message").addEventListener("input", validateMessage);
 
     return () => {
+      if (document.getElementById("name")) {
+        document.getElementById("name").removeEventListener("input", validateMessage);
+      }
       if (document.getElementById("message")) {
         document.getElementById("message").removeEventListener("input", validateMessage);
       }
@@ -35,11 +39,16 @@ export function Contact() {
   };
 
   const validateMessage = () => {
+    const nameField = document.getElementById("name");
     const messageField = document.getElementById("message");
 
     const constraint = new RegExp(/<(.|\n)*?>/g, "");
-    console.log(constraint.test(messageField.value));
 
+    if (constraint.test(nameField.value)) {
+      nameField.setCustomValidity("HTML tags are not allowed in the name field.");
+    } else {
+      nameField.setCustomValidity("");
+    }
     if (constraint.test(messageField.value)) {
       messageField.setCustomValidity("HTML tags are not allowed in the message field.");
     } else {
