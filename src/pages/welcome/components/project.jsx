@@ -1,6 +1,19 @@
+import React from "react";
 import PropTypes from "prop-types";
 
 export function Project({ project }) {
+  const [imgSrc, setImgSrc] = React.useState(null);
+
+  React.useEffect(() => {
+    import(`../../../assets/media/${project.media.url}.png`)
+      .then((image) => {
+        setImgSrc(image.default);
+      })
+      .catch((error) => {
+        console.error(`Error loading image: ${error}`);
+      });
+  }, [project.media.url]);
+
   function displayLinks(arr) {
     if (arr.length === 0) return null;
 
@@ -38,11 +51,13 @@ export function Project({ project }) {
       {project.media.url === "" ? (
         <div className='flex place-items-center w-[150px] h-[150px] shrink-0'>{project.media.alt}</div>
       ) : (
-        <img src={"src/assets/media/" + project.media.url} alt={project.media.alt} width={`256px`} height={"144px"} />
+        <img src={imgSrc} alt={project.media.alt} width={`256px`} height={"144px"} />
       )}
     </li>
   );
 }
+
+// src\assets\media\Project-0018.png
 
 Project.propTypes = {
   project: PropTypes.object.isRequired,
