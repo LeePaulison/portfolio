@@ -16,8 +16,8 @@
     "status": "In Progress",
     "media": {
       "type": "image",
-      "url": "https://via.placeholder.com/150",
-      "alt": "Image 1"
+      "url": "Project-0018.png",
+      "alt": "Project 0018 Flash Cards Activity"
     },
     "links": []
   },
@@ -37,8 +37,8 @@
     "status": "Completed",
     "media": {
       "type": "image",
-      "url": "https://via.placeholder.com/150",
-      "alt": "Image 2"
+      "url": "To-do.png",
+      "alt": "To-do Application Home Page with To-do Item"
     },
     "links": [
       {
@@ -89,8 +89,8 @@
     "status": "Completed",
     "media": {
       "type": "image",
-      "url": "https://via.placeholder.com/150",
-      "alt": "Image 4"
+      "url": "Project-0045.png",
+      "alt": "Project 0045 Introduction Page"
     },
     "links": []
   }

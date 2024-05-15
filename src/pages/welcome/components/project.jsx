@@ -38,7 +38,7 @@ export function Project({ project }) {
       {project.media.url === "" ? (
         <div className='flex place-items-center w-[150px] h-[150px] shrink-0'>{project.media.alt}</div>
       ) : (
-        <img src={project.media.url} alt={project.media.alt} width={`150px`} height={"150px"} />
+        <img src={"src/assets/media/" + project.media.url} alt={project.media.alt} width={`256px`} height={"144px"} />
       )}
     </li>
   );
