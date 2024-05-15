@@ -42,10 +42,12 @@
     },
     "links": [
       {
+        "id": 1,
         "type": "Github",
         "url": "https://github.com/LeePJrAAC/todo-localstorage"
       },
       {
+        "id": 2,
         "type": "Live",
         "url": "https://to-do-local-storage.web.app/"
       }

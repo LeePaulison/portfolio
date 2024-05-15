@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 
 const sup = {
   verticalAlign: "super",
@@ -8,11 +9,12 @@ const sup = {
 
 export function Contact() {
   const [formData, setFormData] = useState({
-    name: "",
-    company: "",
-    email: "",
+    from_name: "",
+    from_company: "",
+    from_email: "",
     message: "",
   });
+  const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
     document.getElementById("name").addEventListener("input", validateMessage);
@@ -46,14 +48,33 @@ export function Contact() {
 
     if (constraint.test(nameField.value)) {
       nameField.setCustomValidity("HTML tags are not allowed in the name field.");
+      setIsFormValid(false);
     } else {
       nameField.setCustomValidity("");
     }
     if (constraint.test(messageField.value)) {
       messageField.setCustomValidity("HTML tags are not allowed in the message field.");
+      setIsFormValid(false);
     } else {
       messageField.setCustomValidity("");
     }
+
+    return setIsFormValid(true);
+  };
+
+  const sendEmail = (data) => {
+    emailjs
+      .send(import.meta.env.VITE_APP_EJS_SERVICE, import.meta.env.VITE_APP_EJS_TEMPLATE, data, {
+        publicKey: import.meta.env.VITE_APP_EJS_PUBLIC,
+      })
+      .then(
+        (result) => {
+          console.log("Email successfully sent!", result.text);
+        },
+        (error) => {
+          console.error("Email sending failed:", error);
+        }
+      );
   };
 
   const handleSubmit = (e) => {
@@ -61,9 +82,10 @@ export function Contact() {
     // Here you would typically handle the form submission,
     // for example, sending the data to an email or a server endpoint.
     validateMessage();
-    console.log(formData);
+    if (!isFormValid) return;
+    sendEmail(formData);
     // Reset form fields
-    setFormData({ name: "", company: "", email: "", message: "" });
+    setFormData({ from_name: "", from_company: "", from_email: "", message: "" });
   };
 
   return (
@@ -75,18 +97,25 @@ export function Contact() {
             <label htmlFor='name'>
               Name<span style={sup}>*</span>:
             </label>
-            <input type='text' id='name' name='name' value={formData.name} onChange={handleChange} required />
+            <input type='text' id='name' name='from_name' value={formData.from_name} onChange={handleChange} required />
           </div>
           <div className='flex flex-col'>
             <label htmlFor='name'>Company:</label>
-            <input type='text' id='company' name='company' value={formData.company} onChange={handleChange} />
+            <input type='text' id='company' name='from_company' value={formData.from_company} onChange={handleChange} />
           </div>
 
           <div className='flex flex-col'>
             <label htmlFor='email'>
               Email<span style={sup}>*</span>:
             </label>
-            <input type='email' id='email' name='email' value={formData.email} onChange={handleChange} required />
+            <input
+              type='email'
+              id='email'
+              name='from_email'
+              value={formData.from_email}
+              onChange={handleChange}
+              required
+            />
           </div>
           <div className='flex flex-col'>
             <label htmlFor='message'>Message:</label>

@@ -4,9 +4,15 @@ export function Project({ project }) {
   function displayLinks(arr) {
     if (arr.length === 0) return null;
 
-    return arr.map((link) => (
+    return arr.map((link, idx) => (
       <>
-        <a key={link.url} href={link.url} target='_blank' rel='noreferrer' className='project-links'>
+        <a
+          key={`${link.id}-${link.url}-${idx}`}
+          href={link.url}
+          target='_blank'
+          rel='noreferrer'
+          className='project-links'
+        >
           {link.type}
         </a>
       </>
