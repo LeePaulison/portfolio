@@ -4,18 +4,10 @@ export function Project({ project }) {
   function displayLinks(arr) {
     if (arr.length === 0) return null;
 
-    return arr.map((link, idx) => (
-      <>
-        <a
-          key={`${link.id}-${link.url}-${idx}`}
-          href={link.url}
-          target='_blank'
-          rel='noreferrer'
-          className='project-links'
-        >
-          {link.type}
-        </a>
-      </>
+    return arr.map((link) => (
+      <a key={crypto.randomUUID()} href={link.url} target='_blank' rel='noreferrer' className='project-links'>
+        {link.type}
+      </a>
     ));
   }
 

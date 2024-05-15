@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
+// hooks/useIP.js
 
 const sup = {
   verticalAlign: "super",
@@ -15,10 +16,16 @@ export function Contact() {
     message: "",
   });
   const [isFormValid, setIsFormValid] = useState(false);
+  const [ip, setIP] = useState("");
 
   useEffect(() => {
     document.getElementById("name").addEventListener("input", validateMessage);
     document.getElementById("message").addEventListener("input", validateMessage);
+
+    fetch("https://api.ipify.org/?format=json")
+      .then((res) => res.json())
+      .then((data) => setIP(data.ip))
+      .catch((err) => console.error(err));
 
     return () => {
       if (document.getElementById("name")) {
@@ -29,6 +36,8 @@ export function Contact() {
       }
     };
   }, []);
+
+  console.log("IP Address: ", ip);
 
   const navigate = useNavigate();
 
