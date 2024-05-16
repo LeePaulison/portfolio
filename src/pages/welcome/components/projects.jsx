@@ -10,7 +10,7 @@ const projectList = projects.map((project) => {
 export function Projects() {
   return (
     <div className='flex flex-col place-items-center py-16 bg-stone-200'>
-      <div className='w-full md:w-[75%] p-4 bg-stone-700 text-slate-50 rounded-[6px] timeline'>
+      <div className='w-full lg:w-[75%] p-4 bg-stone-700 text-slate-50 lg:rounded-[6px] timeline'>
         <ul className='list-disc list-inside border-s-2 border-amber-700 py-[10px] px-[5px]'>{projectList}</ul>
       </div>
     </div>

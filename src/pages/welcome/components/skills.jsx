@@ -4,10 +4,8 @@ import { Skill } from "./skill";
 import skills from "../../../assets/data/skills.json";
 
 export function Skills() {
-  console.log(skills);
-
   return (
-    <div className='flex flex-row justify-center items-center flex-wrap py-16 px-8'>
+    <div className='flex flex-row justify-center items-center gap-y-8 lg:gap-y-0 flex-wrap py-16 px-8'>
       {skills.map((skill, index) => (
         <Skill key={index} skill={skill} />
       ))}

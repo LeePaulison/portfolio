@@ -25,7 +25,7 @@ export function Project({ project }) {
   }
 
   return (
-    <li key={project.id} className='flex flex-row place-items-center p-[20px] project'>
+    <li key={project.id} className='flex flex-col md:flex-row place-items-center p-[20px] project'>
       <div className='grow me-8'>
         <span className='project-date text-stone-800 font-bold bg-amber-500 px-[7px] py-[5px] rounded-[25px]'>
           {project.date}
