@@ -4,9 +4,9 @@ export function Footer() {
   return (
     <footer className='footer bg-stone-700 p-4'>
       <div className='footer-content flex flex-row'>
-        <img src={logo} alt="Lee Paulison's Logo" width={"84px"} height={"auto"} />
+        <img src={logo} alt="Lee Paulison's Logo" className='hidden md:block' width={"84px"} height={"84px"} />
         <div className='flex flex-col items-center gap-4 mx-auto'>
-          <div className='flex flex-row justify-center gap-4'>
+          <div className='flex flex-row flex-wrap justify-center gap-2 md:gap-4'>
             <a
               href='https://www.facebook.com/lee.paulison'
               className='text-stone-300 hover:text-amber-500'
@@ -49,7 +49,7 @@ export function Footer() {
             Reserved
           </p>
         </div>
-        <div className='w-[80px]'></div>
+        <div className='hidden md:w-[80px]'></div>
       </div>
     </footer>
   );

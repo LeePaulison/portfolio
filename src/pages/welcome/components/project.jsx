@@ -49,9 +49,11 @@ export function Project({ project }) {
         )}
       </div>
       {project.media.url === "" ? (
-        <div className='flex place-items-center w-[150px] h-[150px] shrink-0'>{project.media.alt}</div>
+        <div className='flex justify-center items-center shrink-0 mt-4 md:mt-0 border border-amber-600 w-[256px] h-[144px]'>
+          {project.media.alt}
+        </div>
       ) : (
-        <img src={imgSrc} alt={project.media.alt} width={`256px`} height={"144px"} />
+        <img src={imgSrc} alt={project.media.alt} className='mt-4 md:mt-0' width={`256px`} height={"144px"} />
       )}
     </li>
   );
