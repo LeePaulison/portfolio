@@ -5,6 +5,7 @@ export function Project({ project }) {
   const [imgSrc, setImgSrc] = React.useState(null);
 
   React.useEffect(() => {
+    if (project.media.url === "") return;
     import(`../../../assets/media/${project.media.url}.png`)
       .then((image) => {
         setImgSrc(image.default);

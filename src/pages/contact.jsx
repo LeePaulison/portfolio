@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -18,6 +18,7 @@ export function Contact() {
   });
   const [isFormValid, setIsFormValid] = useState(false);
   const [ip, setIP] = useState("");
+  const reCaptchaRef = useRef();
 
   useEffect(() => {
     document.getElementById("name").addEventListener("input", validateMessage);
@@ -102,10 +103,32 @@ export function Contact() {
     console.log("Captcha value:", value);
   };
 
+  const onSubmit = () => {
+    if (!reCaptchaRef.current) return;
+    const token = reCaptchaRef.current.getValue();
+    if (token) {
+      validateCaptcha(token);
+    }
+  };
+
+  const validateCaptcha = async (userToken) => {
+    const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `secret=${import.meta.env.VITE_APP_RECAPTCHA_SECRET_KEY}&response=${userToken}`,
+    });
+    const data = await response.json();
+    console.log("Captcha validation:", data);
+  };
+
   return (
     <div className='flex place-items-center w-full h-full'>
       <div className='flex flex-col place-items-center w-full max-w-[50%] mx-auto'>
-        <ReCAPTCHA sitekey={import.meta.env.VITE_APP_RECAPTCHA_SITE_KEY} onChange={onChange} />
+        <form onSubmit={onSubmit()}>
+          <ReCAPTCHA ref={reCaptchaRef} sitekey={import.meta.env.VITE_APP_RECAPTCHA_SITE_KEY} onChange={onChange} />
+        </form>
         <h1 className='text-3xl font-bold text-center'>Contact Me</h1>
         <form onSubmit={handleSubmit} className='w-full'>
           <div className='flex flex-col'>
