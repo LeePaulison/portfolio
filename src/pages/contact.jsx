@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
 // hooks/useIP.js
 
 const sup = {
@@ -97,9 +98,14 @@ export function Contact() {
     setFormData({ from_name: "", from_company: "", from_email: "", message: "" });
   };
 
+  const onChange = (value) => {
+    console.log("Captcha value:", value);
+  };
+
   return (
     <div className='flex place-items-center w-full h-full'>
       <div className='flex flex-col place-items-center w-full max-w-[50%] mx-auto'>
+        <ReCAPTCHA sitekey={import.meta.env.VITE_APP_RECAPTCHA_SITE_KEY} onChange={onChange} />
         <h1 className='text-3xl font-bold text-center'>Contact Me</h1>
         <form onSubmit={handleSubmit} className='w-full'>
           <div className='flex flex-col'>
