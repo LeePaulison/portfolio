@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+/* eslint-disable no-undef */
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
-import ReCAPTCHA from "react-google-recaptcha";
+
 // hooks/useIP.js
 
 const sup = {
@@ -18,7 +19,6 @@ export function Contact() {
   });
   const [isFormValid, setIsFormValid] = useState(false);
   const [ip, setIP] = useState("");
-  const reCaptchaRef = useRef();
 
   useEffect(() => {
     document.getElementById("name").addEventListener("input", validateMessage);
@@ -88,47 +88,52 @@ export function Contact() {
       );
   };
 
+  const validatereCAPTCHA = () => {
+    let recaptchaResponse = grecaptcha.getResponse();
+    if (!recaptchaResponse) {
+      alert("Please verify that you are not a robot.");
+      return false;
+    }
+
+    fetch(import.meta.env.VITE_APP_RECAPTCHA_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ recaptcha: recaptchaResponse }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          // Process form data or send email
+          console.log("reCAPTCHA verified");
+          sendEmail(formData);
+          // Reset form fields
+          setFormData({ from_name: "", from_company: "", from_email: "", message: "" });
+          return true;
+        } else {
+          console.error("reCAPTCHA verification failed");
+          return false;
+        }
+      })
+      .catch((error) => {
+        console.error("Error verifying reCAPTCHA", error);
+        return false;
+      });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Here you would typically handle the form submission,
     // for example, sending the data to an email or a server endpoint.
     validateMessage();
     if (!isFormValid) return;
-    sendEmail(formData);
-    // Reset form fields
-    setFormData({ from_name: "", from_company: "", from_email: "", message: "" });
-  };
-
-  const onChange = (value) => {
-    console.log("Captcha value:", value);
-  };
-
-  const onSubmit = () => {
-    if (!reCaptchaRef.current) return;
-    const token = reCaptchaRef.current.getValue();
-    if (token) {
-      validateCaptcha(token);
-    }
-  };
-
-  const validateCaptcha = async (userToken) => {
-    const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `secret=${import.meta.env.VITE_APP_RECAPTCHA_SECRET_KEY}&response=${userToken}`,
-    });
-    const data = await response.json();
-    console.log("Captcha validation:", data);
+    validatereCAPTCHA();
   };
 
   return (
     <div className='flex place-items-center w-full h-full'>
       <div className='flex flex-col place-items-center w-full max-w-[50%] mx-auto'>
-        <form onSubmit={onSubmit()}>
-          <ReCAPTCHA ref={reCaptchaRef} sitekey={import.meta.env.VITE_APP_RECAPTCHA_SITE_KEY} onChange={onChange} />
-        </form>
         <h1 className='text-3xl font-bold text-center'>Contact Me</h1>
         <form onSubmit={handleSubmit} className='w-full'>
           <div className='flex flex-col'>
@@ -166,6 +171,7 @@ export function Contact() {
               placeholder='HTML tags are not allowed in the message field.'
             />
           </div>
+          <div className='g-recaptcha' data-sitekey={import.meta.env.VITE_APP_RECAPTCHA_SITE_KEY}></div>
           <div className='flex flex-row gap-4 justify-end'>
             <button type='submit' className='btn-submit'>
               Submit
