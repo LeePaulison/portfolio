@@ -14,7 +14,7 @@ const sup = {
   fontSize: "smaller",
 };
 
-export function Contact() {
+export function Contact_Testing() {
   const [formData, setFormData] = useState({
     from_name: "",
     from_company: "",
@@ -143,8 +143,7 @@ export function Contact() {
     // for example, sending the data to an email or a server endpoint.
     validateMessage();
     if (!isFormValid) return;
-    //handleReCaptcha();
-    sendEmail(formData);
+    handleReCaptcha();
   };
 
   return (
