@@ -50,7 +50,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <GoogleReCaptchaProvider reCaptchaKey='6LcUweEpAAAAAGYD4V42iUtEwIM0fdcReVeg6J_V'>
+    <GoogleReCaptchaProvider reCaptchaKey={import.meta.env.VITE_APP_RECAPTCHA_SITE_KEY}>
       <RouterProvider router={router} />
     </GoogleReCaptchaProvider>
   </React.StrictMode>

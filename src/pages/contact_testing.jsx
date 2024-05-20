@@ -186,7 +186,6 @@ export function Contact_Testing() {
               placeholder='HTML tags are not allowed in the message field.'
             />
           </div>
-          <div className='g-recaptcha' data-sitekey={import.meta.env.VITE_APP_RECAPTCHA_SITE_KEY}></div>
           <div className='flex flex-row gap-4 justify-end'>
             <button type='submit' className='btn-submit'>
               Submit
