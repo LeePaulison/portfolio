@@ -25,12 +25,13 @@ const logger = require("firebase-functions/logger");
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const fetch = require("node-fetch");
+require("dotenv").config();
 
 admin.initializeApp();
 
 exports.verifyRecaptcha = functions.https.onRequest((req, res) => {
   const recaptchaResponse = req.body.recaptcha;
-  const secretKey = ""; // The secret key from reCAPTCHA
+  const secretKey = process.env.RECAPTCHA_SECRET_KEY; // The secret key from reCAPTCHA
 
   fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${recaptchaResponse}`, {
     method: "POST",
