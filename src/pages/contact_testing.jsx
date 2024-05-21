@@ -106,35 +106,45 @@ export function Contact_Testing() {
     }
   };
 
-  const validatereCAPTCHA = (inc) => {
-    // build the request object for the recaptcha verification
-    const recaptchaResponse = inc;
+  // Client-side: validatereCAPTCHA function
+  const validatereCAPTCHA = async (recaptchaResponse) => {
+    try {
+      // Replace with your environment variable setup if needed
+      //const recaptchaURL = import.meta.env.VITE_APP_RECAPTCHA_URL;
 
-    fetch(import.meta.env.VITE_APP_RECAPTCHA_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ recaptcha: recaptchaResponse }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          // Process form data or send email
-          console.log("reCAPTCHA verified");
-          sendEmail(formData);
-          // Reset form fields
-          setFormData({ from_name: "", from_company: "", from_email: "", message: "" });
-          return true;
-        } else {
-          console.error("reCAPTCHA verification failed");
-          return false;
-        }
-      })
-      .catch((error) => {
-        console.error("Error verifying reCAPTCHA", error);
-        return false;
+      const recaptchaURL = import.meta.env.VITE_APP_RECAPTCHA_TESTING_URL;
+
+      console.log("reCAPTCHA URL:", recaptchaURL);
+
+      const response = await fetch(recaptchaURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ recaptcha: recaptchaResponse }),
       });
+
+      console.log("reCAPTCHA response:", response);
+
+      const data = await response.json();
+
+      console.log("reCAPTCHA response:", data);
+
+      if (data.success) {
+        // Process form data or send email
+        console.log("reCAPTCHA verified");
+        sendEmail(formData); // Send email
+        // Reset form fields
+        setFormData({ from_name: "", from_company: "", from_email: "", message: "" });
+        return true;
+      } else {
+        console.error("reCAPTCHA verification failed");
+        return false;
+      }
+    } catch (error) {
+      console.error("Client Error verifying reCAPTCHA", error);
+      return false;
+    }
   };
 
   const handleSubmit = (e) => {
