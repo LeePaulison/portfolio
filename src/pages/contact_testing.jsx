@@ -1,13 +1,9 @@
 // react
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 // react-router-dom
 import { useNavigate } from "react-router-dom";
-// react-google-recaptcha-v3
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 // emailjs
 import emailjs from "@emailjs/browser";
-
-// hooks/useIP.js
 
 const sup = {
   verticalAlign: "super",
@@ -15,6 +11,7 @@ const sup = {
 };
 
 export function Contact_Testing() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     from_name: "",
     from_company: "",
@@ -22,31 +19,39 @@ export function Contact_Testing() {
     message: "",
   });
   const [isFormValid, setIsFormValid] = useState(false);
-  const [ip, setIP] = useState("");
-  const { executeRecaptcha } = useGoogleReCaptcha();
+  const grecaptcha = window.grecaptcha;
 
-  useEffect(() => {
-    document.getElementById("name").addEventListener("input", validateMessage);
-    document.getElementById("message").addEventListener("input", validateMessage);
+  const initializeInputValidation = useCallback(() => {
+    const nameInput = document.getElementById("name");
+    const messageInput = document.getElementById("message");
 
-    fetch("https://api.ipify.org/?format=json")
-      .then((res) => res.json())
-      .then((data) => setIP(data.ip))
-      .catch((err) => console.error(err));
-
-    return () => {
-      if (document.getElementById("name")) {
-        document.getElementById("name").removeEventListener("input", validateMessage);
-      }
-      if (document.getElementById("message")) {
-        document.getElementById("message").removeEventListener("input", validateMessage);
-      }
-    };
+    if (nameInput) {
+      nameInput.addEventListener("input", validateMessage);
+    }
+    if (messageInput) {
+      messageInput.addEventListener("input", validateMessage);
+    }
   }, []);
 
-  console.log("IP Address: ", ip);
+  const removeInputValidation = useCallback(() => {
+    const nameInput = document.getElementById("name");
+    const messageInput = document.getElementById("message");
 
-  const navigate = useNavigate();
+    if (nameInput) {
+      nameInput.removeEventListener("input", validateMessage);
+    }
+    if (messageInput) {
+      messageInput.removeEventListener("input", validateMessage);
+    }
+  }, []);
+
+  useEffect(() => {
+    initializeInputValidation();
+
+    return () => {
+      removeInputValidation();
+    };
+  }, [initializeInputValidation, removeInputValidation]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -94,15 +99,16 @@ export function Contact_Testing() {
   };
 
   const handleReCaptcha = async () => {
-    if (!executeRecaptcha) {
-      console.log("Execute recaptcha not yet available");
+    if (!grecaptcha) {
       return;
     }
-    const token = await executeRecaptcha("contact");
-    console.log("reCAPTCHA token:", token);
 
-    if (token) {
-      validatereCAPTCHA(token);
+    const recaptchaResponse = await grecaptcha.execute(import.meta.env.VITE_APP_RECAPTCHA_SITE_KEY, {
+      action: "contact_form",
+    });
+
+    if (recaptchaResponse) {
+      validatereCAPTCHA(recaptchaResponse);
     }
   };
 
@@ -110,11 +116,9 @@ export function Contact_Testing() {
   const validatereCAPTCHA = async (recaptchaResponse) => {
     try {
       // Replace with your environment variable setup if needed
-      //const recaptchaURL = import.meta.env.VITE_APP_RECAPTCHA_URL;
-
-      const recaptchaURL = import.meta.env.VITE_APP_RECAPTCHA_TESTING_URL;
-
-      console.log("reCAPTCHA URL:", recaptchaURL);
+      const recaptchaURL = import.meta.env.VITE_APP_RECAPTCHA_URL;
+      // Testing URL
+      // const recaptchaURL = import.meta.env.VITE_APP_RECAPTCHA_TESTING_URL;
 
       const response = await fetch(recaptchaURL, {
         method: "POST",
@@ -124,21 +128,18 @@ export function Contact_Testing() {
         body: JSON.stringify({ recaptcha: recaptchaResponse }),
       });
 
-      console.log("reCAPTCHA response:", response);
-
       const data = await response.json();
-
-      console.log("reCAPTCHA response:", data);
 
       if (data.success) {
         // Process form data or send email
-        console.log("reCAPTCHA verified");
         sendEmail(formData); // Send email
         // Reset form fields
         setFormData({ from_name: "", from_company: "", from_email: "", message: "" });
         return true;
       } else {
-        console.error("reCAPTCHA verification failed");
+        // Reset form fields
+        setFormData({ from_name: "", from_company: "", from_email: "", message: "" });
+
         return false;
       }
     } catch (error) {
@@ -210,7 +211,7 @@ export function Contact_Testing() {
                 if (window.history?.length > 1) {
                   navigate(-1);
                 } else {
-                  navigate("/home"); // Replace '/home' with your desired route
+                  navigate("/"); // Replace '/home' with your desired route
                 }
               }}
             >

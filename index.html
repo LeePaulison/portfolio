@@ -11,6 +11,8 @@
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://www.google.com">
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
   <script> const global = globalThis; </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lee Paulison's Portfolio</title>
@@ -18,7 +20,17 @@
 
 <body>
   <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
+  <script type="module">
+    const reCaptchaSiteKey = import.meta.env.VITE_APP_RECAPTCHA_SITE_KEY;
+    if (reCaptchaSiteKey) {
+      const script = document.createElement("script");
+      script.src = `https://www.google.com/recaptcha/api.js?render=${reCaptchaSiteKey}`;
+      document.body.appendChild(script);
+    } else {
+      console.warn("reCaptchaSiteKey is not set");
+    }
+
+  </script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
   </script>
   <script type="text/javascript">
@@ -28,6 +40,7 @@
       });
     })();
   </script>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 
 </html>
