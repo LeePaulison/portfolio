@@ -8,9 +8,9 @@ import "./index.css";
 import { Root } from "./root";
 import { ErrorPage } from "./errorpage";
 import { About } from "./pages/about";
-import { Contact } from "./pages/contact";
+import { Contact } from "./pages/contact/contact";
 // Testing
-import { Contact_Testing } from "./pages/contact_testing";
+import { Contact_Testing } from "./pages/contact/contact_testing";
 
 const router = createBrowserRouter([
   {
