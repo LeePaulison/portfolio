@@ -208,7 +208,7 @@ export function Contact() {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate form fields
@@ -218,7 +218,6 @@ export function Contact() {
     confirmationData.current = formData; // Store form data for confirmation dialog
     // Show confirmation dialog
     showConfirmationDialog();
-
     // Handle reCAPTCHA
     handleReCaptcha();
   };

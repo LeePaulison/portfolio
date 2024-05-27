@@ -8,8 +8,8 @@ export const About = () => {
         limited budget. I play computer games. I love my pets, four cats and a dog. And I love the woman in my life.
       </p>
       <p className='mb-4'>
-        And perhaps none of this helps you, or maybe it does. Let&aposs speak candidly. One aspect of my life not
-        mentioned earlier is that I am a quadriplegic. Without delving into medical details, here&aposs the short
+        And perhaps none of this helps you, or maybe it does. Let&apos;s speak candidly. One aspect of my life not
+        mentioned earlier is that I am a quadriplegic. Without delving into medical details, here&apos;s the short
         version: I have limited mobility in my hands and no sensation from the mid-chest down. Now some will say telling
         you this puts me at a disadvantage. Maybe they are right. Only you can answer that question. Does it? There are
         other important parts of me you should know. I am honest to a fault, often to my detriment, and I am a visual
@@ -17,15 +17,16 @@ export const About = () => {
         committed to making designs accessible to everyone and ensuring the best possible user experience.
       </p>
       <p className='mb-4'>
-        If you&aposve read this far, that means there is something about me that intrigues you. So let us now talk about
-        me as a professional. I graduated Full Sail University in Winter Park, Florida in January of 2020 in Simulations
-        and Visualizations, a BS degree in virtual reality also known as immersive technologies. Then in January of 2021
-        I was hired by Potawatomi Training, LLC (PT) as a Media Developer, placed into a Frontend Developer role where I
-        learned HTML5, CSS, JavaScript, and jQuery on the job. At PT I collaborated with a team building two different
-        e-learning websites for US government entities. The first website has a focus on language. The second website is
-        on military provisioning. As the second project was entering its final stages I found a position at Advanced
-        Automation Corporation (AAC) where I am currently employed. Here at AAC I am once again working on an e-learning
-        course for a government entity. This time though, the course is built in ReactJS, again learned on the job.
+        If you&apos;ve read this far, that means there is something about me that intrigues you. So let us now talk
+        about me as a professional. I graduated Full Sail University in Winter Park, Florida in January of 2020 in
+        Simulations and Visualizations, a BS degree in virtual reality also known as immersive technologies. Then in
+        January of 2021 I was hired by Potawatomi Training, LLC (PT) as a Media Developer, placed into a Frontend
+        Developer role where I learned HTML5, CSS, JavaScript, and jQuery on the job. At PT I collaborated with a team
+        building two different e-learning websites for US government entities. The first website has a focus on
+        language. The second website is on military provisioning. As the second project was entering its final stages I
+        found a position at Advanced Automation Corporation (AAC) where I am currently employed. Here at AAC I am once
+        again working on an e-learning course for a government entity. This time though, the course is built in ReactJS,
+        again learned on the job.
       </p>
       <p className='mb-4'>
         As a Developer I love getting a new task where I get to build new user experiences. For instance, two of my most
