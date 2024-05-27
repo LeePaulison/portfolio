@@ -216,12 +216,11 @@ export function Contact() {
     // Halt form processing if form is invalid
     if (!isFormValid) return;
     confirmationData.current = formData; // Store form data for confirmation dialog
+    // Show confirmation dialog
+    showConfirmationDialog();
 
     // Handle reCAPTCHA
     handleReCaptcha();
-
-    // Show confirmation dialog
-    showConfirmationDialog();
   };
 
   return (
