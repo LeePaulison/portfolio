@@ -6,47 +6,71 @@ import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 // components
 import { Confirmation } from "./components/confirmation";
-
+// styles
 const sup = {
   verticalAlign: "super",
   fontSize: "smaller",
 };
 
-export function Contact_Testing() {
+export function Contact() {
+  // react-router-dom
   const navigate = useNavigate();
+  // reCAPTCHA
+  const grecaptcha = window.grecaptcha;
+  // State
   const [formData, setFormData] = useState({
     from_name: "",
     from_company: "",
     from_email: "",
+    from_subject: "",
     message: "",
   });
   const [isFormValid, setIsFormValid] = useState(false);
-  const grecaptcha = window.grecaptcha;
+  // Refs
   const dialog = useRef(null);
   const inputRefs = useRef([]);
+  const confirmationData = useRef({
+    from_name: "",
+    from_company: "",
+    from_email: "",
+    from_subject: "",
+    message: "",
+  });
 
+  // Reset form data
   const resetFormData = () => {
     setFormData({
       from_name: "",
       from_company: "",
       from_email: "",
+      from_subject: "",
       message: "",
     });
   };
 
+  // Store form input refs
   const buildInputRefs = (elem) => {
     if (elem && !inputRefs.current.includes(elem)) {
       inputRefs.current.push(elem);
     }
   };
 
+  // Validate input fields
   const validateMessage = useCallback(() => {
+    // Check if inputRefs.current is available
     if (!inputRefs.current) return;
 
+    // Regular expression to check for HTML tags
     const constraint = new RegExp(/<(.|\n)*?>/g, "");
 
+    // Validate input fields
     inputRefs.current.forEach((input) => {
-      if (input.name === "from_name" || input.name === "from_company" || input.name === "message") {
+      if (
+        input.name === "from_name" ||
+        input.name === "from_company" ||
+        input.name === "from_subject" ||
+        input.name === "message"
+      ) {
         if (constraint.test(input.value)) {
           input.setCustomValidity("HTML tags are not allowed in the " + input.id + " field.");
           setIsFormValid(false);
@@ -58,6 +82,7 @@ export function Contact_Testing() {
     return setIsFormValid(true);
   }, []);
 
+  // Initialize input validation
   const initializeInputValidation = useCallback(() => {
     if (!inputRefs.current) return;
 
@@ -66,6 +91,7 @@ export function Contact_Testing() {
     });
   }, [validateMessage]);
 
+  // Remove input validation
   const removeInputValidation = useCallback(() => {
     if (!inputRefs.current) return;
 
@@ -74,6 +100,7 @@ export function Contact_Testing() {
     });
   }, [validateMessage]);
 
+  // Add/remove input validation
   useEffect(() => {
     initializeInputValidation();
 
@@ -82,6 +109,7 @@ export function Contact_Testing() {
     };
   }, [initializeInputValidation, removeInputValidation]);
 
+  // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -90,6 +118,7 @@ export function Contact_Testing() {
     }));
   };
 
+  // Send email
   const sendEmail = (data) => {
     emailjs
       .send(import.meta.env.VITE_APP_EJS_SERVICE, import.meta.env.VITE_APP_EJS_TEMPLATE, data, {
@@ -105,18 +134,29 @@ export function Contact_Testing() {
       );
   };
 
+  // Handle reCAPTCHA
   const handleReCaptcha = async () => {
+    // Check if grecaptcha is available
     if (!grecaptcha) {
       return;
     }
 
+    // Execute reCAPTCHA
     const recaptchaResponse = await grecaptcha.execute(import.meta.env.VITE_APP_RECAPTCHA_SITE_KEY, {
       action: "contact_form",
     });
 
+    // Validate reCAPTCHA response
     if (recaptchaResponse) {
       validatereCAPTCHA(recaptchaResponse);
     }
+  };
+
+  // Process form data
+  const processFormData = () => {
+    sendEmail(formData); // Send email
+    // Reset form fields
+    resetFormData();
   };
 
   // Client-side: validatereCAPTCHA function
@@ -144,9 +184,7 @@ export function Contact_Testing() {
       // Response also contains the reCAPTCHA score
       // Score may provide additional information for further processing
       if (data.success) {
-        sendEmail(formData); // Send email
-        // Reset form fields
-        resetFormData();
+        processFormData(); // Send email
         return true;
       } else {
         // Reset form fields
@@ -175,7 +213,9 @@ export function Contact_Testing() {
 
     // Validate form fields
     validateMessage();
+    // Halt form processing if form is invalid
     if (!isFormValid) return;
+    confirmationData.current = formData; // Store form data for confirmation dialog
 
     // Handle reCAPTCHA
     handleReCaptcha();
@@ -247,6 +287,30 @@ export function Contact_Testing() {
             />
           </div>
           <div className='flex flex-col mb-3'>
+            <label htmlFor='subject'>
+              Subject<span style={sup}>*</span>:{" "}
+              {formData.from_subject === "" && (
+                <span role='alert' id='name-error' className='text-red-600'>
+                  Subject is required.
+                </span>
+              )}
+            </label>
+            <input
+              type='text'
+              id='subject'
+              name='from_subject'
+              value={formData.from_subject}
+              onChange={handleChange}
+              required
+              aria-required='true'
+              ref={(e) => buildInputRefs(e)}
+              placeholder="Let's talk about..."
+              aria-invalid={!formData.from_subject}
+              aria-describedby='name-subject'
+            />
+          </div>
+
+          <div className='flex flex-col mb-3'>
             <label htmlFor='message'>Message:</label>
             <textarea
               id='message'
@@ -281,7 +345,7 @@ export function Contact_Testing() {
           </div>
         </form>
       </div>
-      <Confirmation ref={dialog} />
+      <Confirmation ref={dialog} data={confirmationData.current} />
     </div>
   );
 }

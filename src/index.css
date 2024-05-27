@@ -240,11 +240,11 @@ body {
 }
 
 #close-button svg {
-  fill: #1c1917;
+  fill: #fafaf9;
 }
 
 #close-button:hover {
-  border: 2px solid #f59e0b;
+  border: 2px solid #d6d3d1;
   transition: border-color 0.3s ease-in-out;
 }
 
@@ -256,4 +256,16 @@ input:invalid:not(:placeholder-shown),
 textarea:invalid:not(:placeholder-shown) {
   border-color: red;
   border-width: 2px;
+}
+
+.dialog-body > * {
+  margin-bottom: 1rem;
+}
+
+.dialog-body > *:last-child {
+  margin-bottom: 0;
+}
+
+.dialog-body ul li {
+  margin-bottom: 0.5rem;
 }
