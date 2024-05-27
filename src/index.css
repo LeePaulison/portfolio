@@ -110,7 +110,7 @@
   }
 
   .btn-submit {
-    @apply bg-amber-600;
+    @apply bg-amber-700;
     @apply text-stone-50;
     @apply font-bold;
     @apply py-2;
@@ -123,47 +123,7 @@
     @apply ease-in-out;
     @apply hover:bg-amber-700;
   }
-  .card {
-    @apply flex;
-    @apply flex-col;
-    @apply bg-stone-100;
-    @apply border;
-    @apply border-stone-300;
-    @apply rounded-md;
-    @apply shadow-lg;
-    @apply w-full;
-    @apply max-w-[768px];
-    @apply min-h-[200px];
-  }
-  .card:not(:last-child) {
-    @apply mb-4;
-  }
-  .card-header {
-    @apply bg-stone-200;
-    @apply px-4;
-    @apply py-2;
-    @apply border-b;
-    @apply border-stone-300;
-    @apply rounded-t-md;
-    @apply font-bold;
-    @apply text-lg;
-  }
-  .card-body {
-    @apply p-4;
-    @apply grow;
-  }
-  .card-footer {
-    @apply p-2;
-    @apply bg-stone-200;
-    @apply border-t;
-    @apply border-stone-300;
-  }
 
-  .card-body * ul {
-    @apply list-disc;
-    @apply pl-4;
-    @apply list-inside;
-  }
   .nav-link {
     @apply border;
     @apply border-amber-600;
@@ -207,39 +167,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-input[type="search"] {
-  width: 100%;
-  padding-left: 2rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='%23999' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' /%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: 0.625rem 0.75rem;
-  background-size: 1rem;
-  position: relative;
-}
-
-input[type="search"].loading {
-  background-image: none;
-}
-
-#search-spinner {
-  width: 1rem;
-  height: 1rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%23000' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M20 4v5h-.582m0 0a8.001 8.001 0 00-15.356 2m15.356-2H15M4 20v-5h.581m0 0a8.003 8.003 0 0015.357-2M4.581 15H9' /%3E%3C/svg%3E");
-  animation: spin 1s infinite linear;
-  position: absolute;
-  left: 0.625rem;
-  top: 0.75rem;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .navSelect {
   border: none;
   background: none;
@@ -260,10 +187,6 @@ input[type="search"].loading {
 }
 
 .card-body * ul {
-}
-
-.video-player {
-  width: 640px;
 }
 
 #hero-logo {
@@ -292,7 +215,7 @@ input[type="search"].loading {
   height: 10px;
   background-color: rgb(245, 158, 11);
   border-radius: 50%;
-  top: 27px;
+  top: 28px;
   left: -0.65rem;
 }
 
@@ -323,4 +246,14 @@ input[type="search"].loading {
 #close-button:hover {
   border: 2px solid #f59e0b;
   transition: border-color 0.3s ease-in-out;
+}
+
+input:not([type="range"]) {
+  margin-bottom: 0;
+}
+
+input:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown) {
+  border-color: red;
+  border-width: 2px;
 }

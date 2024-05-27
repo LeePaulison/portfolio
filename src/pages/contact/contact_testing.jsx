@@ -23,6 +23,8 @@ export function Contact_Testing() {
   const [isFormValid, setIsFormValid] = useState(false);
   const grecaptcha = window.grecaptcha;
   const dialog = useRef(null);
+  const inputRefs = useRef([]);
+
   const resetFormData = () => {
     setFormData({
       from_name: "",
@@ -32,52 +34,44 @@ export function Contact_Testing() {
     });
   };
 
-  const validateMessage = useCallback(() => {
-    const nameField = document.getElementById("name");
-    const messageField = document.getElementById("message");
+  const buildInputRefs = (elem) => {
+    if (elem && !inputRefs.current.includes(elem)) {
+      inputRefs.current.push(elem);
+    }
+  };
 
-    clearErrorAlert();
+  const validateMessage = useCallback(() => {
+    if (!inputRefs.current) return;
 
     const constraint = new RegExp(/<(.|\n)*?>/g, "");
 
-    if (constraint.test(nameField.value)) {
-      nameField.setCustomValidity("HTML tags are not allowed in the name field.");
-      setIsFormValid(false);
-    } else {
-      nameField.setCustomValidity("");
-    }
-    if (constraint.test(messageField.value)) {
-      messageField.setCustomValidity("HTML tags are not allowed in the message field.");
-      setIsFormValid(false);
-    } else {
-      messageField.setCustomValidity("");
-    }
-
+    inputRefs.current.forEach((input) => {
+      if (input.name === "from_name" || input.name === "from_company" || input.name === "message") {
+        if (constraint.test(input.value)) {
+          input.setCustomValidity("HTML tags are not allowed in the " + input.id + " field.");
+          setIsFormValid(false);
+        } else {
+          input.setCustomValidity("");
+        }
+      }
+    });
     return setIsFormValid(true);
   }, []);
 
   const initializeInputValidation = useCallback(() => {
-    const nameInput = document.getElementById("name");
-    const messageInput = document.getElementById("message");
+    if (!inputRefs.current) return;
 
-    if (nameInput) {
-      nameInput.addEventListener("input", validateMessage);
-    }
-    if (messageInput) {
-      messageInput.addEventListener("input", validateMessage);
-    }
+    inputRefs.current.forEach((input) => {
+      input.addEventListener("input", validateMessage);
+    });
   }, [validateMessage]);
 
   const removeInputValidation = useCallback(() => {
-    const nameInput = document.getElementById("name");
-    const messageInput = document.getElementById("message");
+    if (!inputRefs.current) return;
 
-    if (nameInput) {
-      nameInput.removeEventListener("input", validateMessage);
-    }
-    if (messageInput) {
-      messageInput.removeEventListener("input", validateMessage);
-    }
+    inputRefs.current.forEach((input) => {
+      input.addEventListener("input", validateMessage);
+    });
   }, [validateMessage]);
 
   useEffect(() => {
@@ -97,12 +91,12 @@ export function Contact_Testing() {
   };
 
   // Remove role attribute from error messages
-  const clearErrorAlert = () => {
-    const errorMessages = document.querySelectorAll("[role='alert']");
-    errorMessages.forEach((message) => {
-      message.removeAttribute("role");
-    });
-  };
+  // const clearErrorAlert = () => {
+  //   const errorMessages = document.querySelectorAll("[role='alert']");
+  //   errorMessages.forEach((message) => {
+  //     message.removeAttribute("role");
+  //   });
+  // };
 
   const sendEmail = (data) => {
     emailjs
@@ -203,9 +197,14 @@ export function Contact_Testing() {
       <div className='flex flex-col place-items-center w-full lg:max-w-[50%] mx-auto'>
         <h1 className='text-3xl font-bold text-center'>Contact Me</h1>
         <form onSubmit={handleSubmit} className='w-full' aria-live='polite'>
-          <div className='flex flex-col'>
+          <div className='flex flex-col mb-3'>
             <label htmlFor='name'>
-              Name<span style={sup}>*</span>:
+              Name<span style={sup}>*</span>:{" "}
+              {formData.from_name === "" && (
+                <span role='alert' id='name-error' className='text-red-600'>
+                  Name is required.
+                </span>
+              )}
             </label>
             <input
               type='text'
@@ -215,16 +214,31 @@ export function Contact_Testing() {
               onChange={handleChange}
               required
               aria-required='true'
+              ref={(e) => buildInputRefs(e)}
+              placeholder='John Doe'
+              aria-invalid={!formData.from_name}
+              aria-describedby='name-error'
             />
           </div>
-          <div className='flex flex-col'>
+          <div className='flex flex-col mb-3'>
             <label htmlFor='company'>Company:</label>
-            <input type='text' id='company' name='from_company' value={formData.from_company} onChange={handleChange} />
+            <input
+              type='text'
+              id='company'
+              name='from_company'
+              value={formData.from_company}
+              onChange={handleChange}
+              ref={(e) => buildInputRefs(e)}
+            />
           </div>
-
-          <div className='flex flex-col'>
+          <div className='flex flex-col mb-3'>
             <label htmlFor='email'>
-              Email<span style={sup}>*</span>:
+              Email<span style={sup}>*</span>:{" "}
+              {formData.from_email === "" && (
+                <span role='alert' id='email-error' className='text-red-600'>
+                  Email is required.
+                </span>
+              )}
             </label>
             <input
               type='email'
@@ -234,9 +248,13 @@ export function Contact_Testing() {
               onChange={handleChange}
               required
               aria-required='true'
+              ref={(e) => buildInputRefs(e)}
+              placeholder='john.doe@example.com'
+              aria-invalid={!formData.from_email}
+              aria-describedby='email-error'
             />
           </div>
-          <div className='flex flex-col'>
+          <div className='flex flex-col mb-3'>
             <label htmlFor='message'>Message:</label>
             <textarea
               id='message'
@@ -245,6 +263,7 @@ export function Contact_Testing() {
               onChange={handleChange}
               rows={7}
               placeholder='HTML tags are not allowed in the message field.'
+              ref={(e) => buildInputRefs(e)}
             />
           </div>
           <div className='flex flex-row gap-4 justify-end'>
@@ -259,9 +278,9 @@ export function Contact_Testing() {
               className='btn'
               onClick={() => {
                 if (window.history?.length > 1) {
-                  navigate(-1);
+                  navigate(-1); // Go back to the previous page - if available
                 } else {
-                  navigate("/"); // Replace '/home' with your desired route
+                  navigate("/"); // Redirect to the home page
                 }
               }}
             >

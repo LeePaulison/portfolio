@@ -16,7 +16,14 @@ export function Hero() {
           Contact Me
         </button>
       </div>
-      <img src={heroLogo} width={`250px`} className='m-4 lg:m-0' />
+      <img
+        src={heroLogo}
+        width={`250px`}
+        height={`250px`}
+        className='m-4 lg:m-0'
+        alt='Hero Logo'
+        aria-description='Abstract representation of a person in a wheelchair.'
+      />
     </div>
   );
 }

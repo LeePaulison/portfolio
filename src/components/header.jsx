@@ -5,7 +5,7 @@ export function Header() {
     <header className='flex flex-col md:flex-row justify-between w-full ps-4 pe-8 pb-1 pt-4 border-b border-stone-300'>
       <div className='flex flex-col md:flex-row items-center gap-y-2 md:gap-x-4'>
         <h1 className='font-bold text-2xl'>Lee Paulison Jr</h1>
-        <span className='text-stone-500'>Front-end Developer</span>
+        <span className='text-stone-700'>Front-end Developer</span>
       </div>
       <div className='grow flex flex-row justify-center md:justify-end gap-4'>
         <NavLink className='font-lg font-bold' to='/'>

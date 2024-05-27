@@ -12,6 +12,7 @@ export function Footer() {
               className='text-stone-300 hover:text-amber-500'
               target='_blank'
               rel='noreferrer'
+              aria-label='Facebook Profile'
             >
               <i className='fa fa-facebook'></i>
             </a>
@@ -20,6 +21,7 @@ export function Footer() {
               className='text-stone-300 hover:text-amber-500'
               target='_blank'
               rel='noreferrer'
+              aria-label='LinkedIn Profile'
             >
               <i className='fa fa-linkedin'></i>
             </a>
@@ -28,6 +30,7 @@ export function Footer() {
               className='text-stone-300 hover:text-amber-500'
               target='_blank'
               rel='noreferrer'
+              aria-label='GitHub Profile'
             >
               <i className='fa fa-github'></i>
             </a>
@@ -36,11 +39,12 @@ export function Footer() {
               className='text-stone-300 hover:text-amber-500'
               target='_blank'
               rel='noreferrer'
+              aria-label='GitHub Repository'
             >
               <i className='fa fa-github'></i> Repository
             </a>
 
-            <a href='/contact' className='text-stone-300 hover:text-amber-500'>
+            <a href='/contact' className='text-stone-300 hover:text-amber-500' aria-label='Contact Me'>
               Contact Me
             </a>
           </div>

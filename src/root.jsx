@@ -8,7 +8,7 @@ export const Root = () => {
   const location = useLocation();
 
   return (
-    <div className='container min-h-screen mx-auto flex flex-col bg-stone-100 overflow-hidden'>
+    <div className='container min-h-screen mx-auto flex flex-col bg-stone-50 overflow-hidden'>
       <Header />
       {location.pathname === "/" ? <Welcome /> : <Outlet />}
       <Footer />
