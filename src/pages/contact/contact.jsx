@@ -61,25 +61,23 @@ export function Contact() {
     if (!inputRefs.current) return;
 
     // Regular expression to check for HTML tags
-    const constraint = new RegExp(/<(.|\n)*?>/g, "");
+    const HTML_TAG_REGEX = /<(.|\n)*?>/g;
+    const fieldsToValidate = ["from_name", "from_company", "from_subject", "message"];
+    let isValid = true;
 
     // Validate input fields
     inputRefs.current.forEach((input) => {
-      if (
-        input.name === "from_name" ||
-        input.name === "from_company" ||
-        input.name === "from_subject" ||
-        input.name === "message"
+      if (fieldsToValidate.includes(input.name)
       ) {
-        if (constraint.test(input.value)) {
+        if (HTML_TAG_REGEX.test(input.value)) {
           input.setCustomValidity("HTML tags are not allowed in the " + input.id + " field.");
-          setIsFormValid(false);
+          isValid = false;
         } else {
           input.setCustomValidity("");
         }
       }
     });
-    return setIsFormValid(true);
+    return setIsFormValid(isValid);
   }, []);
 
   // Initialize input validation
