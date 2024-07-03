@@ -7,7 +7,7 @@ export function Header() {
         <h1 className='font-bold text-2xl'>Lee Paulison Jr</h1>
         <span className='text-stone-700'>Front-end Developer</span>
       </div>
-      <div className='grow flex flex-row justify-center md:justify-end gap-4'>
+      <nav className='grow flex flex-row justify-center md:justify-end gap-4'>
         <NavLink className='font-lg font-bold' to='/'>
           Home
         </NavLink>
@@ -17,7 +17,7 @@ export function Header() {
         <NavLink className='font-bold' to='/contact'>
           Contact
         </NavLink>
-      </div>
+      </nav>
     </header>
   );
 }
