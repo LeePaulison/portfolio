@@ -10,7 +10,7 @@ export const Root = () => {
   return (
     <div className='container min-h-screen mx-auto flex flex-col bg-stone-50 overflow-hidden'>
       <Header />
-      <main className='flex-grow'>{location.pathname === "/" ? <Welcome /> : <Outlet />}</main>
+      <main className='flex-grow overflow-y-auto'>{location.pathname === "/" ? <Welcome /> : <Outlet />}</main>
       <Footer />
     </div>
   );

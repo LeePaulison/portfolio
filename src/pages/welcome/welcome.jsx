@@ -5,11 +5,11 @@ import { Who } from "./components/who";
 
 export const Welcome = () => {
   return (
-    <div className='overflow-y-auto'>
+    <>
       <Hero />
       <Skills />
       <Projects />
       <Who />
-    </div>
+    </>
   );
 };
