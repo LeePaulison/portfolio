@@ -4,38 +4,19 @@ export const About = () => {
     <div className='max-w-[720px] mx-auto grow'>
       <h1 className='my-4'>About Me</h1>
       <p className='mb-4'>
-        Buzz words. Simply put they are not who I am. Yes, they describe my work in 10 words or less, but again, they
-        are not who I am. I am a simple person. I like simple things in my life. I am a self-described audiophile with a
-        limited budget. I play computer games. I love my pets, four cats and a dog. And I love the woman in my life.
+        Buzzwords, acronyms, and jargon—they describe what I do, but they don’t capture who I am. I believe in simplicity, both in life and in design. I’m someone who enjoys clean lines, straightforward solutions, and the occasional deep dive into music. As a self-professed audiophile with a limited budget, I know how to appreciate the beauty of something well-crafted. When I’m not designing, I’m gaming or hanging out with my four cats and dog, and spending time with the woman who makes my life whole. These are the parts of my life that ground me.
       </p>
       <p className='mb-4'>
-        And perhaps none of this helps you, or maybe it does. Let's speak candidly. One aspect of my life not mentioned
-        earlier is that I am a quadriplegic. Without delving into medical details, here's the short version: I have
-        limited mobility in my hands and no sensation from the mid-chest down. Now some will say telling you this puts
-        me at a disadvantage. Maybe they are right. Only you can answer that question. Does it? There are other
-        important parts of me you should know. I am honest to a fault, often to my detriment, and I am a visual thinker.
-        I can visualize designs clearly in my mind, even at the concept stage. Due to my disability, I am committed to
-        making designs accessible to everyone and ensuring the best possible user experience.
+        But perhaps none of this helps you decide if I’m the right person for your project—or maybe it does. One aspect of my life that shapes everything I do is that I’m a quadriplegic. I have limited mobility in my hands and no sensation from the chest down. Some might view this as a challenge, but for me, it's a source of strength. My perspective allows me to see technology and design from a unique angle—one where accessibility isn’t just an afterthought but a core principle of the user experience. I believe that great design is inclusive design, and I approach every project with that in mind.
       </p>
       <p className='mb-4'>
-        If you've read this far, that means there is something about me that intrigues you. So let us now talk about me
-        as a professional. I graduated Full Sail University in Winter Park, Florida in January of 2020 in Simulations
-        and Visualizations, a BS degree in virtual reality also known as immersive technologies. Then in January of 2021
-        I was hired by Potawatomi Training, LLC (PT) as a Media Developer, placed into a Frontend Developer role where I
-        learned HTML5, CSS, JavaScript, and jQuery on the job. At PT I collaborated with a team building two different
-        e-learning websites for US government entities. The first website has a focus on language. The second website is
-        on military provisioning. As the second project was entering its final stages I found a position at Advanced
-        Automation Corporation (AAC) where I am currently employed. Here at AAC I am once again working on an e-learning
-        course for a government entity. This time though, the course is built in ReactJS, again learned on the job.
+        So, how did I get here? I graduated from Full Sail University in Winter Park, Florida in January 2020 with a degree in Simulations and Visualizations—essentially, I’ve been working with immersive technologies and virtual reality since the start. In January 2021, I joined Potawatomi Training, LLC as a Media Developer and transitioned into a Frontend Developer role. My first real dive into HTML5, CSS, and JavaScript came through this role, where I was fortunate enough to learn on the job. I worked with a talented team to develop two e-learning platforms for U.S. government entities. The first focused on language acquisition, while the second dealt with military provisioning. These projects were not just websites—they were interactive learning environments where user engagement and accessibility were key.
       </p>
       <p className='mb-4'>
-        As a Developer I love getting a new task where I get to build new user experiences. For instance, two of my most
-        favorite pages within the current project are a page representing Flash Cards and a Media Player. In Flash Cards
-        we present the learner with options to customize the content to help ease their learning of the material. The
-        media player is written with performance and appearance in mind. I kept the design simple yet familiar, while
-        adding additional features such as Focus Points and Knowledge Checks. Focus Points are timestamps chosen for
-        content that should be noted by the learner. Knowledge Checks are like Focus Points in that they rely on
-        timestamps; they differ in that they ask the learner a question regarding the content being presented.
+        Most recently, I worked with Advanced Automation Corporation, where I was part of a team developing an e-learning course for another government entity. The course was built in ReactJS, a framework I quickly adapted to. I’ve always thrived on learning as I go, and this project allowed me to deepen my expertise in ReactJS while delivering a highly functional and accessible platform. Two of my favorite features were the Flash Card tool—where learners could customize content to suit their study needs—and a media player designed with performance and usability in mind. It included Focus Points and Knowledge Checks, both of which were key to enhancing user engagement.
+      </p>
+      <p className='mb-4'>
+        Now, I’m looking for my next opportunity to apply what I’ve learned and continue growing as a developer. My commitment to accessibility and creating user-centered designs remains at the heart of everything I do. If you’re looking for a developer who’s ready to bring fresh ideas, a commitment to accessibility, and thoughtful solutions, let’s connect.
       </p>
     </div>
   );

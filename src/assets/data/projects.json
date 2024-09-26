@@ -1,6 +1,32 @@
 [
   {
-    "id": 1,
+    "date": "25th September 2024",
+    "title": "Gen AI - Project AI",
+    "description": "Simple To-do application built using React.JS, and TailwindCSS. The application uses local storage to store the to-do items. React Router is used to navigate between pages and components. CRUD (Create, Read, Update, Delete) operations are implemented through Actions and Loaders. Actions handle Create (C), Update (U), and Delete (D), the Loaders handle the Read (R) aspects of CRUD. The application is completed and deployed.",
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "React",
+      "Chakra UI",
+      "React Router",
+      "OpenAI",
+      "Express JS"
+    ],
+    "status": "In-Progress",
+    "media": {
+      "type": "image",
+      "url": "To-do",
+      "alt": "To-do Application Home Page with To-do Item"
+    },
+    "links": [
+      {
+        "type": "Github",
+        "url": "https://github.com/LeePaulison/project-ai"
+      }
+    ]
+  },
+  {
     "date": "15th June 2024",
     "title": "Advanced Automation Corporation - DLI Project 0018",
     "description": "This project is an e-Learning application to teach foreign language for Advanced Automation Corporation. This application is built using HTML5, CSS3, JavaScript, ReactJS, and Bootstrap. Additional packages include but are not limited to Three.JS, Redux, React Router, Material-UI, and many others. The application is currently in progress.",
@@ -13,7 +39,7 @@
       "Bootstrap",
       "SCORM - LMS"
     ],
-    "status": "In Progress",
+    "status": "Completed",
     "media": {
       "type": "image",
       "url": "Project-0018",
@@ -22,7 +48,35 @@
     "links": []
   },
   {
-    "id": 2,
+    "date": "30th May 2024",
+    "title": "Portfolio Website",
+    "description": "Professional portfolio website built using Vite CLI, React, and TailwindCSS. As will all portfolio websites, this website is a showcase of my skills, projects, and experiences. All imagery not associated with a specific project is AI generated. The website is currently in continual development.",
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "React",
+      "TailwindCSS",
+      "React Router"
+    ],
+    "status": "Continuing",
+    "media": {
+      "type": "image",
+      "url": "To-do",
+      "alt": "To-do Application Home Page with To-do Item"
+    },
+    "links": [
+      {
+        "type": "Github",
+        "url": "https://github.com/LeePaulison/portfolio"
+      },
+      {
+        "type": "Live",
+        "url": "http://leepaulisonjr.com/"
+      }
+    ]
+  },
+  {
     "date": "1st May 2024",
     "title": "To-do using Local Storage",
     "description": "Simple To-do application built using React.JS, and TailwindCSS. The application uses local storage to store the to-do items. React Router is used to navigate between pages and components. CRUD (Create, Read, Update, Delete) operations are implemented through Actions and Loaders. Actions handle Create (C), Update (U), and Delete (D), the Loaders handle the Read (R) aspects of CRUD. The application is completed and deployed.",
@@ -42,19 +96,16 @@
     },
     "links": [
       {
-        "id": 1,
         "type": "Github",
-        "url": "https://github.com/LeePJrAAC/todo-localstorage"
+        "url": "https://github.com/LeePaulison/todo-localstorage"
       },
       {
-        "id": 2,
         "type": "Live",
         "url": "https://to-do-local-storage.web.app/"
       }
     ]
   },
   {
-    "id": 3,
     "date": "29th September 2022",
     "title": "Potowatomi Training LLC - Project 92F10",
     "description": "This project is an e-Learning application for Potowatomi Training LLC. The application is built using HTML5, CSS3, JavaScript, jQuery, and Bootstrap. The focus of this application is Military Resupply Operations. The application is completed and deployed.",
@@ -74,7 +125,6 @@
     "links": []
   },
   {
-    "id": 4,
     "date": "15th April 2022",
     "title": "Potowatomi Training LLC - DLI Project 0045",
     "description": "This project is an e-Learning application to teach foreign language for Potowatomi Training LLC. The application is built using HTML5, CSS3, JavaScript, jQuery, and Bootstrap. The application is completed and deployed.",
