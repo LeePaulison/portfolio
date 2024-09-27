@@ -1,7 +1,7 @@
 [
   {
     "date": "25th September 2024",
-    "title": "Gen AI - Project 404",
+    "title": "Project 404",
     "description": "Project 404 is a full-stack, developer-focused chatbot built with modern web technologies. It features real-time conversations powered by OpenAI, user authentication with OAuth and Firebase Anonymous Auth, and persistent storage using MongoDB with Mongoose. The project showcases a dynamic and responsive single-page application (SPA) designed to highlight my frontend and backend development skills.",
     "technologies": [
       "HTML5",
@@ -11,7 +11,10 @@
       "Chakra UI",
       "React Router",
       "OpenAI",
-      "Express JS"
+      "Express",
+      "Mongoose",
+      "MongoDB",
+      "Socket.IO"
     ],
     "status": "In-Progress",
     "media": {
@@ -62,8 +65,8 @@
     "status": "Continuing",
     "media": {
       "type": "image",
-      "url": "To-do",
-      "alt": "To-do Application Home Page with To-do Item"
+      "url": "Portfolio",
+      "alt": "Portfolio Website Home Page"
     },
     "links": [
       {
