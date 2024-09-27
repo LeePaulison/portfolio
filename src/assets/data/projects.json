@@ -1,8 +1,8 @@
 [
   {
     "date": "25th September 2024",
-    "title": "Gen AI - Project AI",
-    "description": "Simple To-do application built using React.JS, and TailwindCSS. The application uses local storage to store the to-do items. React Router is used to navigate between pages and components. CRUD (Create, Read, Update, Delete) operations are implemented through Actions and Loaders. Actions handle Create (C), Update (U), and Delete (D), the Loaders handle the Read (R) aspects of CRUD. The application is completed and deployed.",
+    "title": "Gen AI - Project 404",
+    "description": "Project 404 is a full-stack, developer-focused chatbot built with modern web technologies. It features real-time conversations powered by OpenAI, user authentication with OAuth and Firebase Anonymous Auth, and persistent storage using MongoDB with Mongoose. The project showcases a dynamic and responsive single-page application (SPA) designed to highlight my frontend and backend development skills.",
     "technologies": [
       "HTML5",
       "CSS3",
@@ -16,13 +16,13 @@
     "status": "In-Progress",
     "media": {
       "type": "image",
-      "url": "To-do",
-      "alt": "To-do Application Home Page with To-do Item"
+      "url": "",
+      "alt": "No Image Available"
     },
     "links": [
       {
         "type": "Github",
-        "url": "https://github.com/LeePaulison/project-ai"
+        "url": "https://github.com/LeePaulison/project-404"
       }
     ]
   },
