@@ -1,7 +1,7 @@
 import { useRouteError } from "react-router-dom";
 
 const errorCardStyle = {
-  dispay: "flex",
+  display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
