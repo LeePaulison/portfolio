@@ -70,7 +70,7 @@ export function Contact_Testing() {
     if (!inputRefs.current) return;
 
     inputRefs.current.forEach((input) => {
-      input.addEventListener("input", validateMessage);
+      input.removeEventListener("input", validateMessage);
     });
   }, [validateMessage]);
 
